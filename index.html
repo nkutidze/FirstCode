@@ -14,23 +14,46 @@ label{display:block;margin:8px 0 3px;font-weight:bold;color:var(--g)}input,selec
 .tw{overflow:auto;border:1px solid var(--d);border-radius:14px;max-height:46vh;background:#fff;box-shadow:0 3px 12px rgba(11,107,79,.15)}
 table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;text-align:center}th{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:9px 4px;position:sticky;top:0;z-index:2}
 td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
-.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}.box{background:#fff;border:1px solid var(--d);border-radius:14px;text-align:center;padding:8px 3px 7px;font-size:12px;min-width:0}
-.box .bn{font-size:12px;color:#5c6b64;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px}
-.box b{display:block;font-size:22px;color:var(--g);margin:1px 0 5px;line-height:1.1}
-.pips{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;min-height:8px;margin-bottom:6px}
-.pips i{width:6px;height:6px;border-radius:50%;border:1px solid #b9c8c0;box-sizing:border-box}
-.pips i.h{background:var(--g);border-color:var(--g)}.pips i.x{background:var(--r);border-color:var(--r)}
+.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}
+.box{position:relative;background:#fff;border:1px solid var(--d);border-radius:14px;text-align:center;padding:7px 6px 0;font-size:12px;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.box.r1{border-color:#e6c65c;background:#fffbf0}
+.box.turn{outline:2px solid #e0a020;outline-offset:-1px}
+.box .bn{font-size:12.5px;font-weight:bold;color:#33433c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px}
+.box .bn .star{color:#d4a017;margin-right:2px}
+.box>b{display:block;font-size:23px;color:var(--g);margin:2px 0 6px;line-height:1.1}.box>b.neg{color:#b23a2c}
+.pips{display:flex;gap:2px;min-height:5px;margin:0 2px 7px}
+.pips i{flex:1;height:5px;border-radius:3px;background:#e1e9e5}
+.pips i.h{background:var(--g)}.pips i.x{background:#e58c80}
 .st{display:inline-block;font-size:9.5px;font-weight:bold;padding:2px 6px;border-radius:10px;letter-spacing:.2px;white-space:nowrap}
-.box.on{border:2px solid #0b6b4f;background:linear-gradient(#f4fbf7,#e1f3ea);padding:7px 2px 6px}
 .box.on .st{background:#0b6b4f;color:#fff}
 .box.lost .st{background:#fdecea;color:#b23a2c}
 .box.open .st{background:#eef2f0;color:#5c6b64}.mut{color:#5c6b64}
 .teams{display:flex;gap:6px;margin:0 0 6px}.tc{flex:1;min-width:0;background:var(--p);border:1px solid var(--d);border-radius:12px;padding:4px 6px;text-align:center;line-height:1.2}.tn{display:block;font-size:10.5px;color:#5c6b64;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tc>b{display:block;font-size:19px;color:var(--g)}.tg{display:block;font-size:10.5px;color:#0b6b4f}.tg b{font-size:11.5px}
-.rk{min-height:20px;margin-bottom:3px}.gi{margin-top:4px;font-size:10px;font-weight:bold;color:#9aa3a0;line-height:1.2}.gi b{font-size:11px}.gcard{margin-top:-2px;background:#f1f5f3;border:1px solid var(--d);border-radius:12px;text-align:center;padding:6px 3px;font-size:11px;font-weight:bold;color:#0b6b4f;line-height:1.25}.gcard b{font-size:14px}.rp{display:inline-block;padding:1px 2px;font-size:10.5px;font-weight:bold;white-space:nowrap}
+.rk{display:flex;justify-content:space-between;align-items:center;min-height:22px;margin-bottom:2px}
+.rkb{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;background:#eef2f0;color:#5c6b64}
+.rkb.r1{background:#ecc94b;color:#3a2f00}.rkb.r2{background:#d3dad7;color:#33433c}.rkb.r3{background:#dcae84;color:#3d2610}.rkb.rl{background:#fdecea;color:#b23a2c}
+.dl{margin-left:auto;font-size:15px;line-height:1}
+.gi{margin:auto -6px 0;padding:4px 2px 5px;border-top:1px solid #e6eeea;background:#f6f9f7;font-size:9.5px;font-weight:bold;color:#8a9893;line-height:1.25}.gi span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gi b{font-size:12px;color:#33433c}
+.gi.lead{background:#fdf3d0;color:#8a6a00;border-top-color:#f0dc9a;font-size:11px;padding:6px 2px}.gcard{margin-top:-2px;background:#f1f5f3;border:1px solid var(--d);border-radius:12px;text-align:center;padding:6px 3px;font-size:11px;font-weight:bold;color:#0b6b4f;line-height:1.25}.gcard b{font-size:14px}.rp{display:inline-block;padding:1px 2px;font-size:10.5px;font-weight:bold;white-space:nowrap}
 .rp.r1{color:#0b6b4f}.rp.r2{color:#0b6b4f}.rp.r3{color:#5c6b64}.rp.rl{color:#b23a2c}
-.seg{display:flex;gap:6px}.seg button{flex:1;padding:11px 6px;border:2px solid var(--d);background:#fff;border-radius:10px;font:bold 14px Georgia,serif;color:#5c6b64;cursor:pointer}
+.seg{display:flex;gap:4px;background:#eaf2ee;padding:4px;border-radius:12px}.seg button{flex:1;padding:10px 6px;border:0;background:transparent;border-radius:9px;font:bold 14px Georgia,serif;color:#5c6b64;cursor:pointer;transition:background .15s,color .15s}
 .seg.wrap{flex-wrap:wrap}.seg.wrap button{flex:1 1 28%}.seg.wrap button[data-v=c]{flex:1 1 100%}
-.seg button.on{border-color:var(--g);background:var(--g);color:#fff}
+.seg button.on{background:var(--g);color:#fff;box-shadow:0 2px 6px rgba(11,107,79,.3)}
+.seg.wrap{background:none;padding:0;gap:8px}.seg.wrap button{border:2px solid var(--d);background:#fff;padding:14px 6px;border-radius:10px;font-size:16px;color:#1a1a1a}
+.seg.wrap button.on{border-color:var(--g);background:var(--g);color:#fff}
+/* ---- setup page ---- */
+.hero{text-align:center;margin:4px auto 2px}.hero h1{margin:2px 0 0}.hs{color:#5c6b64;font-size:13px;font-style:italic}
+.fan{position:relative;width:170px;height:82px;margin:0 auto}
+.fan i{position:absolute;left:63px;top:8px;width:44px;height:62px;background:#fff;border:1px solid var(--d);border-radius:7px;box-shadow:0 2px 6px rgba(0,0,0,.15);font:bold 24px Georgia,serif;font-style:normal;color:#1a1a1a;display:flex;align-items:flex-start;justify-content:flex-start;padding:3px 5px;line-height:1;transform-origin:50% 130%}
+.fan i.rd{color:var(--r)}.fan i.jk{align-items:center;justify-content:center;padding:0;font-size:26px;border-color:var(--g)}
+.fan i:nth-child(1){transform:rotate(-32deg)}.fan i:nth-child(2){transform:rotate(-16deg)}.fan i:nth-child(4){transform:rotate(16deg)}.fan i:nth-child(5){transform:rotate(32deg)}
+.card.setup{background:#fff;border-radius:16px;padding:4px 14px;box-shadow:0 3px 14px rgba(11,107,79,.12)}
+.sec{padding:12px 0;border-bottom:1px solid #e6eeea}.sec:last-child{border-bottom:0}.sec label{margin:0 0 8px;font-size:14px}
+#tnote{font-size:12px;margin-top:6px;text-align:center}
+.pr{display:flex;align-items:center;gap:8px;margin:6px 0}.pr input{flex:1}
+.pnum{flex:none;width:32px;height:32px;border-radius:50%;background:var(--g);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:bold;transition:background .2s}
+.plist.tm .pr:nth-child(even) .pnum{background:var(--b)}
+.b.start{display:block;width:100%;max-width:520px;margin:4px auto 18px;padding:15px;font-size:18px;border-radius:14px;box-shadow:0 4px 14px rgba(11,107,79,.35)}
 .dealrow{display:flex;gap:8px;align-items:stretch;justify-content:center;flex-wrap:wrap;margin:10px 0}
 .deal{flex:1 1 190px;display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e3f4ec,#cdeadb);color:#0b6b4f;border:1px solid #b7dcc9;border-radius:14px;padding:10px 16px;box-shadow:0 2px 8px rgba(11,107,79,.12)}
 .deal .ic{font-size:30px;line-height:1;background:rgba(255,255,255,.7);border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
@@ -40,9 +63,33 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 #hint{text-align:center;color:var(--g);font-weight:bold;font-size:13px;margin:6px 0}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9}
 #ov[hidden]{display:none}
-.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
+.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.watch{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff6dd;border:1px solid #ecd48a;color:#7a5a00;border-radius:10px;padding:6px 10px;margin:8px 0;font-size:13px}.watch button{border:1px solid #ecd48a;background:#fff;color:#7a5a00;border-radius:8px;padding:4px 10px;font-size:13px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0}.grid .b{font-size:20px;padding:12px 0}.note{color:var(--r);font-weight:bold}
 .chk{display:flex;gap:6px;align-items:center;margin:4px 0}.chk input{width:auto}
+/* ---- part summary popup ---- */
+.dlg.ps{position:relative;overflow:hidden}
+.ps h3 .cd{display:inline-block;animation:wig 1s ease-in-out infinite alternate}
+@keyframes wig{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+.ps-list{margin:12px 0 14px;text-align:left}
+.ps-row{display:flex;align-items:center;gap:10px;padding:8px 10px;margin:6px 0;border-radius:12px;background:var(--p);border:1px solid var(--d);opacity:0;animation:rowIn .5s cubic-bezier(.2,1.5,.4,1) var(--d) forwards}
+.ps-row.r1{background:linear-gradient(135deg,#fff8e1,#fdf0c2);border-color:#ecd48a}
+@keyframes rowIn{from{opacity:0;transform:translateX(-40px) scale(.94)}to{opacity:1;transform:none}}
+.ps-md{font-size:26px;width:34px;text-align:center;flex:none}
+.ps-row.r1 .ps-md{animation:bob 1s ease-in-out infinite}
+.ps-row.lst .ps-md{animation:crawl 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-5px) rotate(-10deg)}}
+@keyframes crawl{0%,100%{transform:translateX(-2px)}50%{transform:translateX(5px) rotate(6deg)}}
+.ps-mid{flex:1;min-width:0}
+.ps-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline}.ps-top b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ps-v{font-size:20px;font-weight:bold;color:var(--g)}
+.ps-bar{height:7px;background:#e3ece7;border-radius:4px;margin:4px 0 3px;overflow:hidden}
+.ps-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),#3fb68b);border-radius:4px;animation:grow .9s ease-out calc(var(--d) + .2s) forwards}
+.ps-row.r1 .ps-bar i{background:linear-gradient(90deg,#d4a017,#f2d479)}
+@keyframes grow{to{width:var(--w)}}
+.ps-sub{font-size:11.5px;color:#5c6b64}.ps-sub .q{font-style:italic}.ps-pm{color:var(--g);font-weight:bold}.ps-ct{color:var(--r);font-weight:bold}
+.cf{position:absolute;top:-24px;font-size:18px;pointer-events:none;opacity:.5;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(560px) rotate(540deg);opacity:0}}
+@media (prefers-reduced-motion:reduce){.ps-row,.ps-bar i,.cf,.ps-md,.ps h3 .cd{animation:none!important}.ps-row{opacity:1}.ps-bar i{width:var(--w)}.cf{display:none}}
 [hidden]{display:none!important}
 /* ---- top bar + hidden menu ---- */
 .top{position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#0b6b4f,#0f7f5f);color:#fff;margin:-10px -10px 10px;padding:6px 8px 6px 14px;padding-top:calc(6px + env(safe-area-inset-top));box-shadow:0 2px 8px rgba(0,0,0,.2)}
@@ -76,23 +123,25 @@ table.sc tr.live b{color:#b35a00}
 <script>
 let LANG=localStorage.getItem('joker_lang')==='en'?'en':'ka',VIEW='setup',SV=null;document.documentElement.lang=LANG;
 const KA={'Statistics':'სტატისტიკა','New game':'ახალი თამაში','Game rules':'თამაშის წესები','Game type':'თამაშის ტიპი','Individual':'ინდივიდუალური','Teams':'გუნდური',
-'Teams: Player 1 & 3 vs Player 2 & 4':'გუნდური: მოთამაშე 1 და 3 vs მოთამაშე 2 და 4','Last score rule':'პრემიაზე გასვლა','Affected':'ბოლო იშლება','Not affected':'ბოლო არ იშლება',
-'Penalty score':'ჯარიმის ქულა','100 × cards dealt':'სადაც დაგეწევა','Other number':'სხვა რიცხვი',
+'Teams: Player 1 & 3 vs Player 2 & 4':'გუნდური: მოთამაშე 1 და 3 vs მოთამაშე 2 და 4','Last score rule':'პრემია','Affected':'ბოლო იშლება','Not affected':'ბოლო არ იშლება',
+'Penalty score':'ხიშტი','100 × cards dealt':'სადაც დაგეწევა','Other number':'რამდენი?',
 'Players':'მოთამაშეები','Player':'მოთამაშე','Start game':'თამაშის დაწყება','Please enter all 4 player names.':'გთხოვთ, შეიყვანეთ 4 მოთამაშის სახელი.','Each player needs a different name.':'თითოეულ მოთამაშეს განსხვავებული სახელი სჭირდება.',
 'Game over':'თამაში დასრულდა','deals {0} card':'არიგებს {0} კარტს','deals {0} cards':'არიგებს {0} კარტს','TOTAL':'ჯამი','Part':'ნაწილი','Cards':'კარტი','Team':'გუნდი','TEAM':'გუნდი','cut':'ჩამოჭრა','taken':'აიღო',
 'premia lost':'პრემია დაკარგულია','premia open':'პრემია ღიაა','★ ON PREMIA':'★ პრემიაზეა','★ PREMIA WON':'★ პრემია მოიგო','OVER':'წაგლეჯვა','EXTRA':'შეტენვა',
 '{0} card will be cut from someone':'{0} კარტი ჩამოეჭრება ვინმეს','{0} cards will be cut from someone':'{0} კარტი ჩამოეჭრება ვინმეს','{0} card goes with someone':'{0} კარტი ვინმეს მიჰყვება','{0} cards go with someone':'{0} კარტი ვინმეს მიჰყვება',
-'Next to bid: {0}':'შემდეგი თქმა: {0}','All bids are in. Play the round, then enter taken.':'ყველა განცხადება მიღებულია. ითამაშეთ რაუნდი, შემდეგ შეიყვანეთ აღებული.','Taken: {0} of {1}':'აღებული: {0} / {1}',
-'↶ Undo':'↶ გაუქმება','Game finished':'თამაში დასრულდა','Enter bid: {0}':'ამბობს {0}','Enter taken: {0}':'აღებული: {0}',
+'Next to bid: {0}':'შემდეგი თქმა: {0}','All bids are in. Play the round, then enter taken.':'ითამაშეთ რაუნდი, შემდეგ შეიყვანეთ აღებული.','Taken: {0} of {1}':'აღებული: {0} / {1}',
+'↶ Undo':'↶ გაუქმება','Game finished':'თამაში დასრულდა','Enter bid: {0}':'ამბობს {0}','Enter taken: {0}':'წაღებული: {0}',
 'Cannot bid {0} (the bids would be full)':'ვერ დაასახელებთ {0}-ს (განცხადებები სრული იქნება)','Round {0} • {1} cards • bids {2}':'რაუნდი {0} • {1} კარტი • {2} ამბობს','1st':'1-ლი','2nd':'მე-2','3rd':'მე-3','4th':'მე-4',
 'Round {0} • bid: {1} • {2} left':'რაუნდი {0} • განცხადება: {1} • დარჩა {2}','✓ Took as bid ({0})':'✓ აიღო განცხადებისამებრ ({0})','BID':'განცხადება','TAKEN':'აღებული','Cancel':'გაუქმება','place':'ადგილი','To 1st: {0}':'პირველამდე: {0}','Last place':'ბოლო ადგილი','Pass':'პასი','OK':'კარგი',
 'Delete ALL saved games?':'ყველა შენახული თამაშის წაშლა?','Delete':'წაშლა','Start a new game?\nThe current unfinished game will be lost.':'დავიწყოთ ახალი თამაში?\nმიმდინარე დაუსრულებელი თამაში დაიკარგება.','Start new':'დაწყება',
 'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
-'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.'};
+'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.','Please enter the penalty.':'გთხოვთ, ჩაწერეთ ხიშტის რაოდენობა.',
+'Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
+'Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'ნელა, მაგრამ დარწმუნებით'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
-const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
-function setLang(){if(VIEW==='setup'&&$('#ty'))SV={pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pe:$('#pe').value};
+const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('share')">📡 ${tr('Share game')}</button><button onclick="menu('join')">👁 ${tr('Enter code')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
+function setLang(){if(VIEW==='setup'&&$('#ty'))SV={pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pv:$('#pv').value,pe:$('#pe').value};
  LANG=LANG==='ka'?'en':'ka';localStorage.setItem('joker_lang',LANG);document.documentElement.lang=LANG;$('#mn').innerHTML=menuHTML();
  if(VIEW==='stats')stats();else if(VIEW==='game'&&S)render();else setup()}
 const PARTS=[[1,2,3,4,5,6,7,8],[9,9,9,9],[8,7,6,5,4,3,2,1],[9,9,9,9]],R=[];
@@ -107,7 +156,7 @@ const balText=(a,c)=>a>c?tr('OVER')+' '+(a-c):a<c?tr('EXTRA')+' '+(c-a):'';
 const pill=a=>a>0?`<i class="pl up">+${fmt(a)} ★</i>`:a<0?`<i class="pl dn">${fmt(a)} ${tr('cut')}</i>`:'';
 const td=(r,x,j)=>r.k=='t'?`<td><b>${x.v}</b>${pill(x.a)}</td>`
  :r.k=='l'?`<td><b>${x.b==null?'·':bl(x.b)}</b><small>${x.t==null?tr('taken')+' …':tr('taken')+' '+x.t}</small></td>`
- :`<td class="ed ${x.b==x.t?'hit':'miss'}" onclick="editCell(${r.i},${j})"><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
+ :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':'miss'}"${WATCH?'':` onclick="editCell(${r.i},${j})"`}><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
 function tableHTML(rows,N,T){
  const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>${tr('Team')} ${p%2+1}</small>`:''}</th>`).join('')+'';
  const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
@@ -119,32 +168,34 @@ function adj(ps,hs,aff,tm){const n=ps.length,pr=[...Array(n).keys()].filter(p=>h
  else if(pr.length==1)for(let p=0;p<n;p++)if(p!=pr[0])a[p]=-cut(p);
  return a}
 let S=null,G=JSON.parse(localStorage.getItem('joker_games')||'[]');
-const keep=()=>localStorage.setItem('joker_state',JSON.stringify(S));
+const keep=()=>{if(WATCH)return;localStorage.setItem('joker_state',JSON.stringify(S));pushLive()};
 try{S=JSON.parse(localStorage.getItem('joker_state'))}catch(e){}
 function box(msg,yes,no){return new Promise(res=>{const ov=$('#ov');ov.hidden=false;
  ov.innerHTML=`<div class="dlg"><div style="white-space:pre-line;margin:6px 0 14px;font-size:16px">${esc(msg)}</div><div class="row"><button class="b" id="by">${yes||tr('OK')}</button>${no?`<button class="b gh" id="bn">${no}</button>`:''}</div></div>`;
  const c=v=>{ov.hidden=true;ov.innerHTML='';res(v)};$('#by').onclick=()=>c(true);if(no)$('#bn').onclick=()=>c(false)})}
 async function delAll(){if(await box(tr('Delete ALL saved games?'),tr('Delete'),tr('Cancel'))){G=[];localStorage.removeItem('joker_games');stats()}}
 const seg=(id,o,d)=>`<input type="hidden" id="${id}" value="${d}"><div class="seg" id="${id}s">${o.map(([v,l])=>`<button type="button" data-v="${v}" class="${v==d?'on':''}" onclick="pick('${id}','${v}')">${l}</button>`).join('')}</div>`;
-function pick(id,v){$('#'+id).value=v;document.querySelectorAll('#'+id+'s button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));if(id=='pc')pcShow()}
-function pcShow(){const n=+$('#pc').value;document.querySelectorAll('.nm').forEach((e,i)=>e.style.display=i>=n?'none':'');const tb=document.querySelector('#tys button[data-v="Teams"]');if(tb)tb.style.display=n==3?'none':'';$('#tnote').style.display=n==3?'none':'';if(n==3)pick('ty','Individual')}
-function penShow(){const m=$('#pm').value,v=$('#pe').value;document.querySelectorAll('#pbs button').forEach(b=>b.classList.toggle('on',m=='c'?b.dataset.v=='c':b.dataset.v==v));$('#pe').disabled=m=='c'}
-function penPick(m,v){$('#pm').value=m;if(m=='f')$('#pe').value=v;penShow()}
-function penType(){$('#pm').value='f';penShow()}
-function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="card"><h2>${tr('Game rules')}</h2>
-<label>${tr('Number of players')}</label>${seg('pc',[['4',tr('4 players')],['3',tr('3 players')]],'4')}
-<label>${tr('Game type')}</label>${seg('ty',[['Individual',tr('Individual')],['Teams',tr('Teams')]],'Individual')}
-<div class="mut" id="tnote" style="font-size:12px">${tr('Teams: Player 1 & 3 vs Player 2 & 4')}</div>
-<label>${tr('Last score rule')}</label>${seg('af',[['1',tr('Affected')],['0',tr('Not affected')]],'1')}
-<label>${tr('Penalty score')}</label><input type="hidden" id="pm" value="f"><div class="seg wrap" id="pbs">${[200,300,400].map(v=>`<button type="button" data-v="${v}" class="${v==200?'on':''}" onclick="penPick('f',${v})">${v}</button>`).join('')}<button type="button" data-v="c" onclick="penPick('c')">${tr('100 × cards dealt')}</button></div>
-<input id="pe" type="number" value="200" min="0" step="10" placeholder="${tr('Other number')}" oninput="penType()" style="margin-top:6px">
-<label>${tr('Players')}</label>${[1,2,3,4].map(i=>`<input class="nm" placeholder="${tr('Player')} ${i}" style="margin:3px 0">`).join('')}
-<button class="b wide" onclick="start()">${tr('Start game')}</button></div>`;
- if(SV){pick('pc',SV.pc||'4');document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('af',SV.af);$('#pm').value=SV.pm;$('#pe').value=SV.pe;penShow();SV=null}}
+function pick(id,v){$('#'+id).value=v;document.querySelectorAll('#'+id+'s button').forEach(b=>b.classList.toggle('on',b.dataset.v==v));if(id=='pc')pcShow();if(id=='ty'){const l=$('.plist');if(l)l.classList.toggle('tm',v=='Teams')}}
+function pcShow(){const n=+$('#pc').value;document.querySelectorAll('.nm').forEach((e,i)=>e.parentElement.style.display=i>=n?'none':'');const e=$('#tysec');if(e)e.style.display=n==3?'none':'';if(n==3)pick('ty','Individual')}
+function penShow(){const m=$('#pm').value,v=$('#pv').value,t=$('#pe').value!=='';document.querySelectorAll('#pbs button').forEach(b=>b.classList.toggle('on',m=='c'?b.dataset.v=='c':!t&&b.dataset.v==v));$('#pe').disabled=m=='c'}
+function penPick(m,v){$('#pm').value=m;$('#pe').value='';$('#pv').value=m=='f'?v:'';penShow()}
+function penType(){$('#pm').value='f';$('#pv').value=$('#pe').value.trim();penShow()}
+function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><div class="fan"><i>♠</i><i class="rd">♥</i><i class="jk">🃏</i><i class="rd">♦</i><i>♣</i></div><h1>${tr('New game')}</h1><div class="hs">${tr('Game rules')}</div></div>
+<div class="card setup">
+<div class="sec"><label>👥 ${tr('Number of players')}</label>${seg('pc',[['4',tr('4 players')],['3',tr('3 players')]],'4')}</div>
+<div class="sec" id="tysec"><label id="tylbl">🤝 ${tr('Game type')}</label>${seg('ty',[['Individual',tr('Individual')],['Teams',tr('Teams')]],'Individual')}
+<div class="mut" id="tnote">${tr('Teams: Player 1 & 3 vs Player 2 & 4')}</div></div>
+<div class="sec"><label>★ ${tr('Last score rule')}</label>${seg('af',[['1',tr('Affected')],['0',tr('Not affected')]],'1')}</div>
+<div class="sec"><label>⚠ ${tr('Penalty score')}</label><input type="hidden" id="pm" value="f"><input type="hidden" id="pv" value=""><div class="seg wrap" id="pbs">${[200,300,400].map(v=>`<button type="button" data-v="${v}" class="" onclick="penPick('f',${v})">${v}</button>`).join('')}<button type="button" data-v="c" onclick="penPick('c')">${tr('100 × cards dealt')}</button></div>
+<input id="pe" type="number" value="" min="0" step="10" placeholder="${tr('Other number')}" oninput="penType()" style="margin-top:8px"></div></div>
+<div class="card setup"><div class="sec"><label>🃏 ${tr('Players')}</label><div class="plist">${[1,2,3,4].map(i=>`<div class="pr"><span class="pnum">${i}</span><input class="nm" placeholder="${tr('Player')} ${i}"></div>`).join('')}</div></div></div>
+<button class="b start" onclick="start()">▶ ${tr('Start game')}</button>`;
+ if(SV){pick('pc',SV.pc||'4');document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('af',SV.af);$('#pm').value=SV.pm;$('#pv').value=SV.pv;$('#pe').value=SV.pe;penShow();SV=null}}
 function start(){const n=[...document.querySelectorAll('.nm')].slice(0,+$('#pc').value).map(i=>i.value.trim());
  if(n.includes(''))return box(tr('Please enter all player names.'));
+ if($('#pm').value=='f'&&$('#pv').value==='')return box(tr('Please enter the penalty.'));
  if(new Set(n.map(x=>x.toLowerCase())).size<n.length)return box(tr('Each player needs a different name.'));
- S={cfg:{team:$('#ty').value=='Teams'&&n.length==4,aff:$('#af').value=='1',pen:+$('#pe').value||0,penCards:$('#pm').value=='c',names:n},results:[],bids:n.map(()=>null),took:n.map(()=>null),log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
+ S={cfg:{team:$('#ty').value=='Teams'&&n.length==4,aff:$('#af').value=='1',pen:+$('#pv').value||0,penCards:$('#pm').value=='c',names:n},results:[],bids:n.map(()=>null),took:n.map(()=>null),log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
  keep();render();setTimeout(go,300)}
 function calc(){const n=S.cfg.names.length,rows=[],tot=Array(n).fill(0),mk=()=>Array.from({length:n},()=>[]);let ps=mk(),hs=mk();
  S.results.forEach((r,i)=>{const I=R[i],cells=[];
@@ -160,18 +211,20 @@ function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.lengt
  if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:S.bids.map((_,p)=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
  const part=R[Math.min(k,23)].part,tt=team(tot);
  const rk=tot.map(v=>1+tot.filter(x=>x>v).length),mn=Math.min(...tot),same=tot.every(v=>v==tot[0]);
- const rb=p=>{if(!k||same||T)return'';const last=tot[p]==mn,r=rk[p],top=Math.max(...tot);return (last?`<span class="rp rl">🔻</span>`:`<span class="rp r${r}">${['🥇','🥈','🥉'][r-1]}</span>`)};
- const gc=p=>(!k||same||T||rk[p]==1)?'':`<div class="gi">${tr('To 1st: {0}','<b>'+fmt(Math.max(...tot)-tot[p])+'</b>')}</div>`;
+ const rc=p=>(!k||same||T)?'':rk[p]>1&&tot[p]==mn?'rl':'r'+rk[p];
+ const rb=p=>rc(p)?`<span class="rkb ${rc(p)}">${rk[p]}</span>`:'';
+ const gc=p=>(!k||same||T)?'':rk[p]==1?`<div class="gi lead">👑 ${tr('Leader')}</div>`:`<div class="gi"><span>${tr('To 1st')}</span><b>${fmt(Math.max(...tot)-tot[p])}</b></div>`;
+ const cur=done?null:nextStep(),dlr=done?-1:k%N.length;
  const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[k%N.length])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
  if(T){const mx=Math.max(...tt);tm=`<div class="teams">${[0,1].map(t=>`<div class="tc"><span class="tn">${tr('TEAM')} ${t+1} · ${esc(N[t])} &amp; ${esc(N[t+2])}</span><b style="${tt[t]==mx?'':'color:#1a1a1a'}">${fmt(tt[t])}</b>${tt[t]<mx?`<span class="tg">${tr('To 1st: {0}','<b>'+fmt(mx-tt[t])+'</b>')}</span>`:''}</div>`).join('')}</div>`}
  const bx=`<div class="boxes" style="grid-template-columns:repeat(${N.length},1fr)">`+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
   const st=m.includes('x')?[tr('premia lost'),'lost']:!m.includes('h')?[tr('premia open'),'open']:m.includes('o')?[tr('★ ON PREMIA'),'on']:[tr('★ PREMIA WON'),'on'];
-  return`<div class="box ${st[1]}"><div class="rk">${rb(p)}</div><div class="bn">${esc(n)}</div><b>${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div>${gc(p)}</div>`}).join('')+'</div>';
+  return`<div class="box ${st[1]} ${rc(p)}${!WATCH&&cur&&cur[1]==p?' turn':''}"><div class="rk">${rb(p)}${p==dlr?`<span class="dl" title="${tr('Deal')}">🃏</span>`:''}</div><div class="bn">${st[1]=='on'?'<span class="star">★</span>':''}${esc(n)}</div><b class="${tot[p]<0?'neg':''}">${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div>${gc(p)}</div>`}).join('')+'</div>';
  const st=done?null:nextStep();let bal='';
  if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'#c0392b':'#1565c0';
   bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}</div>`}}
- let h=tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
-<div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`;
+ let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
+${WATCH?'':`<div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`}`;
  $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
 function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
  let note='',sub,extra='',fi='',cls='';
@@ -184,19 +237,34 @@ function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=
   extra=`<button class="b" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ ${bl(b)}</button>`}
  const ov=$('#ov');ov.hidden=false;
  ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(kind=='bid'||LANG!=='ka'?N[p]:N[p]+(/[აეიოუ]$/.test(N[p])?'მ':'მა'))}${S.cfg.team?' ('+tr('Team')+' '+(p%2+1)+')':''}${kind=='bid'?' '+tr('says'):LANG==='ka'?' წაიღო':' – '+tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
- <div class="grid">${extra}${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?'':`<button class="b${kind=='took'?' sec':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
+ <div class="grid">${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?extra:`<button class="b${kind=='took'?' sec':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
  <button class="b gh wide" data-v="x">${tr('Cancel')}</button></div>`;
  const close=v=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res(v)};
  const key=e=>{if(e.key=='Escape')close(null);else if(/^\d$/.test(e.key)&&+e.key<=c&&!dis.has(+e.key))close(+e.key)};
  document.addEventListener('keydown',key);
  ov.querySelectorAll('button').forEach(b=>b.onclick=()=>b.dataset.v=='x'?close(null):close(+b.dataset.v))})}
+function partPopup(pt){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,T=S.cfg.team,{rows,tot}=calc(),a=rows.filter(r=>r.k=='t').pop().cells.map(x=>x.a);
+ const ps=N.map((_,p)=>a[p]+sum(S.results.filter((_,i)=>R[i].part==pt).map(r=>r.scores[p])));
+ let L=T?[0,1].map(t=>({n:N[t]+' & '+N[t+2],v:tot[t]+tot[t+2],pv:ps[t]+ps[t+2],a:a[t]+a[t+2]})):N.map((n,p)=>({n,v:tot[p],pv:ps[p],a:a[p]}));
+ L.sort((x,y)=>y.v-x.v);const mx=L[0].v,mn=L[L.length-1].v;
+ const list=L.map((x,i)=>{const r=1+L.filter(y=>y.v>x.v).length,last=r>1&&x.v==mn,w=mx==mn?100:30+70*(x.v-mn)/(mx-mn);
+  const [md,q]=r==1?['👑','Table king']:last?['🐢','Slow but steady']:r==2?['🥈','Right on their heels']:['🥉','Still in the game'];
+  return`<div class="ps-row${r==1?' r1':''}${last?' lst':''}" style="--d:${i*.15}s"><span class="ps-md">${md}</span><div class="ps-mid"><div class="ps-top"><b>${esc(x.n)}</b><span class="ps-v" data-to="${x.v}">0</span></div><div class="ps-bar"><i style="--w:${w}%"></i></div>
+  <div class="ps-sub">${tr('This part')}: <b>${x.pv>0?'+':''}${fmt(x.pv)}</b>${x.a>0?` · <span class="ps-pm">★ ${tr('premia')}</span>`:x.a<0?` · <span class="ps-ct">✂ ${tr('cut')}</span>`:''}<span class="q"> — ${tr(q)}</span></div></div></div>`}).join('');
+ const cf=Array.from({length:14},(_,i)=>`<span class="cf" style="left:${Math.random()*95}%;animation-duration:${2.5+Math.random()*2}s;animation-delay:${Math.random()*1.2}s;color:${i%2?'#c0392b':'#1a1a1a'}">${'♠♥♣♦'[i%4]}</span>`).join('');
+ ov.hidden=false;ov.innerHTML=`<div class="dlg ps">${cf}<div style="position:relative;z-index:1"><h3><span class="cd">🃏</span> ${tr('Part {0} finished',pt+1)}</h3><div class="ps-list">${list}</div>
+ <button class="b wide" id="pc2">${pt<3?tr('Next part')+' ▶':tr('Close')}</button></div></div>`;
+ ov.querySelectorAll('.ps-v').forEach((e,i)=>{const to=+e.dataset.to,t0=performance.now()+i*150+200;const f=t=>{const k=Math.min(1,Math.max(0,(t-t0)/900));e.textContent=fmt(Math.round(to*(1-Math.pow(1-k,3))));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)});
+ const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
+ const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
+ document.addEventListener('keydown',key);$('#pc2').onclick=close})}
 let DEALSHOWN=-1;
 function dealPopup(k){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,c=R[k].cards;ov.hidden=false;
  ov.innerHTML=`<div class="dlg"><div class="mut" style="font-weight:bold;margin-bottom:8px">${tr('Deal')} ${R[k].n}</div><div class="deal" style="margin:0 0 14px"><span class="ic">🃏</span><div style="text-align:left;font-size:17px;font-weight:bold">${esc(N[k%N.length])} ${tr(c==1?'deals {0} card':'deals {0} cards',c)}</div></div><button class="b wide" id="dc">${tr('Close')}</button></div>`;
  const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
  const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
  document.addEventListener('keydown',key);$('#dc').onclick=close})}
-async function go(){if(!S||S.results.length>=24||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
+async function go(){if(WATCH||!S||S.results.length>=24||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
  if(ph=='bid'&&S.bids.every(b=>b==null)&&DEALSHOWN!=S.results.length){DEALSHOWN=S.results.length;await dealPopup(S.results.length)}
  while(st&&st[0]==ph){const[k,p]=st,v=await ask(k,p);if(v==null)break;
   if(k=='bid'){S.bids[p]=v;S.log.push(['bid',p,0])}else{S.took[p]=v;S.log.push(['took',p,0]);autofill()}
@@ -207,11 +275,13 @@ function autofill(){const c=R[S.results.length].cards,e=order(S.results.length).
 function finish(){const I=R[S.results.length];
  S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.penCards?100*I.cards:S.cfg.pen)),log:[...S.log]});
  S.bids=S.bids.map(()=>null);S.took=S.took.map(()=>null);S.log=[];keep();render();
- if(S.results.length==24){save(true);const{tot}=calc(),N=S.cfg.names;let m;
+ const done=S.results.length==24;if(done)save(true);
+ const next=()=>{if(!done)return setTimeout(go,300);const{tot}=calc(),N=S.cfg.names;let m;
   if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?tr('Tie! Both teams {0}',fmt(b)):tr('Winner: {0} with {1}',w[0],fmt(b))}
   else{const b=Math.max(...tot);m=tr('Winner: {0} with {1}',N.filter((n,i)=>tot[i]==b).join(', '),fmt(b))}
-  setTimeout(()=>box(m+'\n\n'+tr('Saved in Statistics.')),100)}else setTimeout(go,300)}
-function editCell(i,p){const ov=$('#ov');if(!ov.hidden)return;
+  setTimeout(()=>box(m+'\n\n'+tr('Saved in Statistics.')),100)};
+ I.last?setTimeout(()=>partPopup(I.part).then(next),250):next()}
+function editCell(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
  const r=S.results[i],c=R[i].cards,N=S.cfg.names,pen=S.cfg.penCards?100*c:S.cfg.pen;let b=r.bids[p],t=r.took[p];
  const row=(k,v)=>`<div class="grid">${Array.from({length:c+1},(_,n)=>`<button class="b${n==v?'':' sec'}" data-k="${k}" data-v="${n}">${bl(n)}</button>`).join('')}</div>`;
  ov.hidden=false;
@@ -227,7 +297,7 @@ function editCell(i,p){const ov=$('#ov');if(!ov.hidden)return;
  const close=()=>{ov.hidden=true;ov.innerHTML=''};
  $('#ec').onclick=close;
  $('#es').onclick=()=>{r.bids[p]=b;r.took[p]=t;r.scores[p]=score(b,t,c,pen);close();keep();if(S.results.length==24)save(true);render()}}
-function undo(){if(!S)return;if(!S.log.length&&S.results.length){const r=S.results.pop();S.bids=[...r.bids];S.took=[...r.took];S.log=[...r.log]}
+function undo(){if(!S||WATCH)return;if(!S.log.length&&S.results.length){const r=S.results.pop();S.bids=[...r.bids];S.took=[...r.took];S.log=[...r.log]}
  while(S.log.length){const[k,p,a]=S.log.pop();S[k=='bid'?'bids':'took'][p]=null;if(!a)break}keep();render()}
 function save(fin){const{tot}=calc(),N=S.cfg.names,t=team(tot),b=Math.max(...(S.cfg.team?t:tot));
  const g={id:S.id,date:S.date,team:S.cfg.team,fin,names:N,pen:S.cfg.pen,aff:S.cfg.aff,results:S.results.map((r,i)=>({n:R[i].n,part:R[i].part+1,cards:R[i].cards,bids:r.bids,took:r.took,scores:r.scores})),
@@ -253,8 +323,33 @@ function stats(){VIEW='stats';const P={};G.filter(g=>g.fin).forEach(g=>g.names.f
 function tog(e){e.stopPropagation();$('#mn').hidden=!$('#mn').hidden}
 document.addEventListener('click',()=>{$('#mn').hidden=true});
 document.addEventListener('keydown',e=>{if(e.key=='Escape')$('#mn').hidden=true});
-function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else newGame()}
-async function newGame(){if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
+const LIVE_URL='';
+const liveUrl=c=>LIVE_URL.replace(/\/$/,'')+'/games/'+c+'.json';
+let WATCH=null;
+function pushLive(){if(!LIVE_URL||!S||!S.share||WATCH)return;fetch(liveUrl(S.share),{method:'PUT',body:JSON.stringify({s:JSON.stringify({cfg:S.cfg,results:S.results,bids:S.bids,took:S.took}),t:Date.now()})}).catch(()=>{})}
+async function shareGame(){if(!LIVE_URL)return box(tr('Online sharing is not set up yet.'));
+ if(WATCH)stopWatch(true);
+ if(!S||!S.cfg)return box(tr('Start a game first.'));
+ if(!S.share){S.share=Array.from({length:5},()=>'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'[Math.floor(Math.random()*32)]).join('');keep()}
+ pushLive();
+ const keepIt=await box(tr('Game code: {0}\nShare it with the other players: ☰ → Enter code.',S.share),tr('OK'),tr('Stop sharing'));
+ if(!keepIt){fetch(liveUrl(S.share),{method:'DELETE'}).catch(()=>{});delete S.share;keep()}}
+async function joinGame(){if(!LIVE_URL)return box(tr('Online sharing is not set up yet.'));
+ if(WATCH)stopWatch(true);
+ const ov=$('#ov');ov.hidden=false;
+ ov.innerHTML=`<div class="dlg"><h3>${tr('Enter code')}</h3><input id="jc" maxlength="8" autocapitalize="characters" autocomplete="off" style="text-transform:uppercase;text-align:center;font-size:22px;letter-spacing:4px;margin:10px 0"><div class="note" id="jn"></div><div class="row"><button class="b" id="jg">${tr('View')}</button><button class="b gh" id="jx">${tr('Cancel')}</button></div></div>`;
+ $('#jx').onclick=()=>{ov.hidden=true;ov.innerHTML=''};
+ const go1=async()=>{const code=$('#jc').value.trim().toUpperCase();if(!code)return;$('#jn').textContent='';
+  try{const r=await fetch(liveUrl(code));const d=await r.json();if(!d||!d.s){$('#jn').textContent=tr('Code not found.');return}
+   ov.hidden=true;ov.innerHTML='';startWatch(code,d)}catch(e){$('#jn').textContent=tr('Could not connect.')}};
+ $('#jg').onclick=go1;$('#jc').onkeydown=e=>{if(e.key=='Enter')go1()};$('#jc').focus()}
+function startWatch(code,d){WATCH={code,mine:S,last:d.s,timer:setInterval(pollWatch,3000)};S=JSON.parse(d.s);render()}
+async function pollWatch(){if(!WATCH)return;try{const r=await fetch(liveUrl(WATCH.code));const d=await r.json();
+ if(!d||!d.s){if(!WATCH.ended){WATCH.ended=true;render()}return}
+ const was=WATCH.ended;WATCH.ended=false;if(d.s!==WATCH.last||was){WATCH.last=d.s;S=JSON.parse(d.s);render()}}catch(e){}}
+function stopWatch(quiet){if(!WATCH)return;clearInterval(WATCH.timer);S=WATCH.mine;WATCH=null;if(!quiet){if(S&&S.cfg){render();setTimeout(go,300)}else setup()}}
+function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else if(w=='share')shareGame();else if(w=='join')joinGame();else newGame()}
+async function newGame(){if(WATCH)stopWatch(true);if(S&&S.share&&LIVE_URL)fetch(liveUrl(S.share),{method:'DELETE'}).catch(()=>{});if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
 $('#mn').innerHTML=menuHTML();
 S&&S.cfg?(render(),setTimeout(go,300)):setup();
 </script></body></html>
