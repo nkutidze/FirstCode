@@ -63,7 +63,7 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 #hint{text-align:center;color:var(--g);font-weight:bold;font-size:13px;margin:6px 0}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9}
 #ov[hidden]{display:none}
-.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.watch{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff6dd;border:1px solid #ecd48a;color:#7a5a00;border-radius:10px;padding:6px 10px;margin:8px 0;font-size:13px}.watch button{border:1px solid #ecd48a;background:#fff;color:#7a5a00;border-radius:8px;padding:4px 10px;font-size:13px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
+.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.b.fill:not(:disabled){outline:3px solid #f2c53d;outline-offset:2px}.watch{display:flex;justify-content:space-between;align-items:center;gap:8px;background:#fff6dd;border:1px solid #ecd48a;color:#7a5a00;border-radius:10px;padding:6px 10px;margin:8px 0;font-size:13px}.watch button{border:1px solid #ecd48a;background:#fff;color:#7a5a00;border-radius:8px;padding:4px 10px;font-size:13px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0}.grid .b{font-size:20px;padding:12px 0}.note{color:var(--r);font-weight:bold}
 .chk{display:flex;gap:6px;align-items:center;margin:4px 0}.chk input{width:auto}
 /* ---- part summary popup ---- */
@@ -103,7 +103,7 @@ table.sc small{display:block;font-size:11px;font-weight:normal;color:#5c6b64;mar
 table.sc th small{color:#cfeadf;margin-top:0}
 .pn{display:block;max-width:78px;margin:0 auto;overflow:hidden;text-overflow:ellipsis}
 table.sc td.ed{cursor:pointer}table.sc td.ed:active{filter:brightness(.93)}table.sc td.hit{background:#e8f6ee}table.sc td.hit b{color:#0b6b4f}
-table.sc td.miss{background:#fff2ef}table.sc td.miss b{color:#b23a2c}
+table.sc td.miss{background:#fff6cc}table.sc td.miss b{color:#a67c00}table.sc td.pen{background:#fff2ef}table.sc td.pen b{color:#b23a2c}
 table.sc td:first-child,table.sc th:first-child{position:sticky;left:0;z-index:1;background:#f3f8f5;border-right:1px solid #dbe6e0}
 table.sc th:first-child{z-index:3;background:var(--g)}
 .bd{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:var(--g);color:#fff;font-weight:bold;font-size:15px}
@@ -137,26 +137,26 @@ const KA={'Statistics':'სტატისტიკა','New game':'ახალ
 'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
 'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.','Please enter the penalty.':'გთხოვთ, ჩაწერეთ ხიშტის რაოდენობა.',
-'Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
+'Category':'კატეგორია','Standard':'სტანდარტული','Nines':'ცხრიანები','Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
 'Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'ნელა, მაგრამ დარწმუნებით'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
 const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('share')">📡 ${tr('Share game')}</button><button onclick="menu('join')">👁 ${tr('Enter code')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
-function setLang(){if(VIEW==='setup'&&$('#ty'))SV={pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pv:$('#pv').value,pe:$('#pe').value};
+function setLang(){if(VIEW==='setup'&&$('#ty'))SV={md:$('#md').value,pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pv:$('#pv').value,pe:$('#pe').value};
  LANG=LANG==='ka'?'en':'ka';localStorage.setItem('joker_lang',LANG);document.documentElement.lang=LANG;$('#mn').innerHTML=menuHTML();
  if(VIEW==='stats')stats();else if(VIEW==='game'&&S)render();else setup()}
-const PARTS=[[1,2,3,4,5,6,7,8],[9,9,9,9],[8,7,6,5,4,3,2,1],[9,9,9,9]],R=[];
-PARTS.forEach((p,i)=>p.forEach((c,j)=>R.push({n:R.length+1,part:i,cards:c,last:j==p.length-1})));
+const MODES={std:[[1,2,3,4,5,6,7,8],[9,9,9,9],[8,7,6,5,4,3,2,1],[9,9,9,9]],nines:[[9,9,9,9],[9,9,9,9],[9,9,9,9],[9,9,9,9]]};let R=[],TOTAL=24;
+function syncR(){R=[];MODES[(S&&S.cfg&&S.cfg.mode)||'std'].forEach((p,i)=>p.forEach((c,j)=>R.push({n:R.length+1,part:i,cards:c,last:j==p.length-1})));TOTAL=R.length}
 const $=s=>document.querySelector(s),ORD=['1st','2nd','3rd','4th'];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt=v=>{let t=(v/100).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');return t=='-0'||t==''?'0':t};
 const bl=n=>n==0?tr('Pass'):''+n,sum=a=>a.reduce((x,y)=>x+(y||0),0),team=v=>[v[0]+v[2],v[1]+v[3]];
-const order=r=>{const n=S.cfg.names.length;return[...Array(n).keys()].map(s=>(r+1+s)%n)};
+const order=r=>{const n=S.cfg.names.length;return[...Array(n).keys()].map(s=>(r+s)%n)};
 const score=(b,t,c,pen)=>b>0&&t==0?-pen:b!=t?t*10:b==0?50:b==c?c*100:100+(b-1)*50;
 const balText=(a,c)=>a>c?tr('OVER')+' '+(a-c):a<c?tr('EXTRA')+' '+(c-a):'';
 const pill=a=>a>0?`<i class="pl up">+${fmt(a)} ★</i>`:a<0?`<i class="pl dn">${fmt(a)} ${tr('cut')}</i>`:'';
 const td=(r,x,j)=>r.k=='t'?`<td><b>${x.v}</b>${pill(x.a)}</td>`
  :r.k=='l'?`<td><b>${x.b==null?'·':bl(x.b)}</b><small>${x.t==null?tr('taken')+' …':tr('taken')+' '+x.t}</small></td>`
- :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':'miss'}"${WATCH?'':` onclick="editCell(${r.i},${j})"`}><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
+ :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':x.b>0&&x.t==0?'pen':'miss'}"${WATCH?'':` onclick="editCell(${r.i},${j})"`}><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
 function tableHTML(rows,N,T){
  const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>${tr('Team')} ${p%2+1}</small>`:''}</th>`).join('')+'';
  const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
@@ -170,6 +170,7 @@ function adj(ps,hs,aff,tm){const n=ps.length,pr=[...Array(n).keys()].filter(p=>h
 let S=null,G=JSON.parse(localStorage.getItem('joker_games')||'[]');
 const keep=()=>{if(WATCH)return;localStorage.setItem('joker_state',JSON.stringify(S));pushLive()};
 try{S=JSON.parse(localStorage.getItem('joker_state'))}catch(e){}
+syncR();
 function box(msg,yes,no){return new Promise(res=>{const ov=$('#ov');ov.hidden=false;
  ov.innerHTML=`<div class="dlg"><div style="white-space:pre-line;margin:6px 0 14px;font-size:16px">${esc(msg)}</div><div class="row"><button class="b" id="by">${yes||tr('OK')}</button>${no?`<button class="b gh" id="bn">${no}</button>`:''}</div></div>`;
  const c=v=>{ov.hidden=true;ov.innerHTML='';res(v)};$('#by').onclick=()=>c(true);if(no)$('#bn').onclick=()=>c(false)})}
@@ -182,6 +183,7 @@ function penPick(m,v){$('#pm').value=m;$('#pe').value='';$('#pv').value=m=='f'?v
 function penType(){$('#pm').value='f';$('#pv').value=$('#pe').value.trim();penShow()}
 function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><div class="fan"><i>♠</i><i class="rd">♥</i><i class="jk">🃏</i><i class="rd">♦</i><i>♣</i></div><h1>${tr('New game')}</h1><div class="hs">${tr('Game rules')}</div></div>
 <div class="card setup">
+<div class="sec"><label>🎴 ${tr('Category')}</label>${seg('md',[['std',tr('Standard')],['nines',tr('Nines')]],'std')}</div>
 <div class="sec"><label>👥 ${tr('Number of players')}</label>${seg('pc',[['4',tr('4 players')],['3',tr('3 players')]],'4')}</div>
 <div class="sec" id="tysec"><label id="tylbl">🤝 ${tr('Game type')}</label>${seg('ty',[['Individual',tr('Individual')],['Teams',tr('Teams')]],'Individual')}
 <div class="mut" id="tnote">${tr('Teams: Player 1 & 3 vs Player 2 & 4')}</div></div>
@@ -190,13 +192,13 @@ function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><div
 <input id="pe" type="number" value="" min="0" step="10" placeholder="${tr('Other number')}" oninput="penType()" style="margin-top:8px"></div></div>
 <div class="card setup"><div class="sec"><label>🃏 ${tr('Players')}</label><div class="plist">${[1,2,3,4].map(i=>`<div class="pr"><span class="pnum">${i}</span><input class="nm" placeholder="${tr('Player')} ${i}"></div>`).join('')}</div></div></div>
 <button class="b start" onclick="start()">▶ ${tr('Start game')}</button>`;
- if(SV){pick('pc',SV.pc||'4');document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('af',SV.af);$('#pm').value=SV.pm;$('#pv').value=SV.pv;$('#pe').value=SV.pe;penShow();SV=null}}
+ if(SV){pick('pc',SV.pc||'4');document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('md',SV.md||'std');pick('af',SV.af);$('#pm').value=SV.pm;$('#pv').value=SV.pv;$('#pe').value=SV.pe;penShow();SV=null}}
 function start(){const n=[...document.querySelectorAll('.nm')].slice(0,+$('#pc').value).map(i=>i.value.trim());
  if(n.includes(''))return box(tr('Please enter all player names.'));
  if($('#pm').value=='f'&&$('#pv').value==='')return box(tr('Please enter the penalty.'));
  if(new Set(n.map(x=>x.toLowerCase())).size<n.length)return box(tr('Each player needs a different name.'));
- S={cfg:{team:$('#ty').value=='Teams'&&n.length==4,aff:$('#af').value=='1',pen:+$('#pv').value||0,penCards:$('#pm').value=='c',names:n},results:[],bids:n.map(()=>null),took:n.map(()=>null),log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
- keep();render();setTimeout(go,300)}
+ S={cfg:{team:$('#ty').value=='Teams'&&n.length==4,aff:$('#af').value=='1',pen:+$('#pv').value||0,penCards:$('#pm').value=='c',mode:$('#md').value,names:n},results:[],bids:n.map(()=>null),took:n.map(()=>null),log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
+ syncR();keep();render();setTimeout(go,300)}
 function calc(){const n=S.cfg.names.length,rows=[],tot=Array(n).fill(0),mk=()=>Array.from({length:n},()=>[]);let ps=mk(),hs=mk();
  S.results.forEach((r,i)=>{const I=R[i],cells=[];
   for(let p=0;p<n;p++){ps[p].push(r.scores[p]);hs[p].push(r.bids[p]==r.took[p]);tot[p]+=r.scores[p];cells.push({b:r.bids[p],t:r.took[p],s:r.scores[p]})}
@@ -207,15 +209,15 @@ function calc(){const n=S.cfg.names.length,rows=[],tot=Array(n).fill(0),mk=()=>A
  return{rows,tot}}
 function nextStep(){const o=order(S.results.length);for(const p of o)if(S.bids[p]==null)return['bid',p];
  for(const p of o)if(S.took[p]==null)return['took',p];return null}
-function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=24,{rows,tot}=calc();
+function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=TOTAL,{rows,tot}=calc();
  if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:S.bids.map((_,p)=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
- const part=R[Math.min(k,23)].part,tt=team(tot);
+ const part=R[Math.min(k,TOTAL-1)].part,tt=team(tot);
  const rk=tot.map(v=>1+tot.filter(x=>x>v).length),mn=Math.min(...tot),same=tot.every(v=>v==tot[0]);
  const rc=p=>(!k||same||T)?'':rk[p]>1&&tot[p]==mn?'rl':'r'+rk[p];
  const rb=p=>rc(p)?`<span class="rkb ${rc(p)}">${rk[p]}</span>`:'';
  const gc=p=>(!k||same||T)?'':rk[p]==1?`<div class="gi lead">👑 ${tr('Leader')}</div>`:`<div class="gi"><span>${tr('To 1st')}</span><b>${fmt(Math.max(...tot)-tot[p])}</b></div>`;
- const cur=done?null:nextStep(),dlr=done?-1:k%N.length;
- const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[k%N.length])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
+ const cur=done?null:nextStep(),dlr=done?-1:(k+N.length-1)%N.length;
+ const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[(k+N.length-1)%N.length])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
  if(T){const mx=Math.max(...tt);tm=`<div class="teams">${[0,1].map(t=>`<div class="tc"><span class="tn">${tr('TEAM')} ${t+1} · ${esc(N[t])} &amp; ${esc(N[t+2])}</span><b style="${tt[t]==mx?'':'color:#1a1a1a'}">${fmt(tt[t])}</b>${tt[t]<mx?`<span class="tg">${tr('To 1st: {0}','<b>'+fmt(mx-tt[t])+'</b>')}</span>`:''}</div>`).join('')}</div>`}
  const bx=`<div class="boxes" style="grid-template-columns:repeat(${N.length},1fr)">`+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
   const st=m.includes('x')?[tr('premia lost'),'lost']:!m.includes('h')?[tr('premia open'),'open']:m.includes('o')?[tr('★ ON PREMIA'),'on']:[tr('★ PREMIA WON'),'on'];
@@ -223,21 +225,21 @@ function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.lengt
  const st=done?null:nextStep();let bal='';
  if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'#c0392b':'#1565c0';
   bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}</div>`}}
- let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
+ let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`${!done&&st[0]!='bid'&&sum(S.took)>0?`<div id="hint">${tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>`:''}
 ${WATCH?'':`<div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`}`;
  $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
 function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
- let note='',sub,extra='',fi='',cls='';
+ let note='',sub,extra='',fi='',cls='',fill=-1;
  if(kind=='bid'){if(p==o[o.length-1]){const b=c-sum(o.slice(0,-1).map(q=>S.bids[q]));if(b>=0&&b<=c){dis.add(b)}}
   sub='';
   const ix=o.indexOf(p),rem=c-sum(o.slice(0,ix).map(q=>S.bids[q]));
-  if(ix<o.length-1){fi=rem>0?tr('To fill: {0}',rem):'⚠ '+tr('Filled');cls=rem>0?'':' warn'}else if(rem==0){fi='⚠ '+tr('You are filled!');cls=' bad'}}
+  if(ix<o.length-1){if(rem>0)fill=rem;else{fi='⚠ '+tr('Filled');cls=' warn';fill=0}}else if(rem==0){fi='⚠ '+tr('You are filled!');cls=' bad'}}
  else{const rem=c-sum(S.took);for(let n=rem+1;n<=c;n++)dis.add(n);const bal=balText(sum(S.bids),c),b=S.bids[p];
   sub='';
   extra=`<button class="b" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ ${bl(b)}</button>`}
  const ov=$('#ov');ov.hidden=false;
- ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(kind=='bid'||LANG!=='ka'?N[p]:N[p]+(/[აეიოუ]$/.test(N[p])?'მ':'მა'))}${S.cfg.team?' ('+tr('Team')+' '+(p%2+1)+')':''}${kind=='bid'?' '+tr('says'):LANG==='ka'?' წაიღო':' – '+tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
- <div class="grid">${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?extra:`<button class="b${kind=='took'?' sec':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
+ ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(kind=='bid'||LANG!=='ka'?N[p]:N[p]+(/[აეიოუ]$/.test(N[p])?'მ':'მა'))}${kind=='bid'?' '+tr('says'):LANG==='ka'?' წაიღო':' – '+tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
+ <div class="grid">${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?extra:`<button class="b${kind=='took'?' sec':''}${n==fill?' fill':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
  <button class="b gh wide" data-v="x">${tr('Cancel')}</button></div>`;
  const close=v=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res(v)};
  const key=e=>{if(e.key=='Escape')close(null);else if(/^\d$/.test(e.key)&&+e.key<=c&&!dis.has(+e.key))close(+e.key)};
@@ -260,11 +262,11 @@ function partPopup(pt){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,
  document.addEventListener('keydown',key);$('#pc2').onclick=close})}
 let DEALSHOWN=-1;
 function dealPopup(k){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,c=R[k].cards;ov.hidden=false;
- ov.innerHTML=`<div class="dlg"><div class="mut" style="font-weight:bold;margin-bottom:8px">${tr('Deal')} ${R[k].n}</div><div class="deal" style="margin:0 0 14px"><span class="ic">🃏</span><div style="text-align:left;font-size:17px;font-weight:bold">${esc(N[k%N.length])} ${tr(c==1?'deals {0} card':'deals {0} cards',c)}</div></div><button class="b wide" id="dc">${tr('Close')}</button></div>`;
+ ov.innerHTML=`<div class="dlg"><div class="mut" style="font-weight:bold;margin-bottom:8px">${tr('Deal')} ${R[k].n}</div><div class="deal" style="margin:0 0 14px"><span class="ic">🃏</span><div style="text-align:left;font-size:17px;font-weight:bold">${esc(N[(k+N.length-1)%N.length])} ${tr(c==1?'deals {0} card':'deals {0} cards',c)}</div></div><button class="b wide" id="dc">${tr('Close')}</button></div>`;
  const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
  const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
  document.addEventListener('keydown',key);$('#dc').onclick=close})}
-async function go(){if(WATCH||!S||S.results.length>=24||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
+async function go(){if(WATCH||!S||S.results.length>=TOTAL||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
  if(ph=='bid'&&S.bids.every(b=>b==null)&&DEALSHOWN!=S.results.length){DEALSHOWN=S.results.length;await dealPopup(S.results.length)}
  while(st&&st[0]==ph){const[k,p]=st,v=await ask(k,p);if(v==null)break;
   if(k=='bid'){S.bids[p]=v;S.log.push(['bid',p,0])}else{S.took[p]=v;S.log.push(['took',p,0]);autofill()}
@@ -275,7 +277,7 @@ function autofill(){const c=R[S.results.length].cards,e=order(S.results.length).
 function finish(){const I=R[S.results.length];
  S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.penCards?100*I.cards:S.cfg.pen)),log:[...S.log]});
  S.bids=S.bids.map(()=>null);S.took=S.took.map(()=>null);S.log=[];keep();render();
- const done=S.results.length==24;if(done)save(true);
+ const done=S.results.length==TOTAL;if(done)save(true);
  const next=()=>{if(!done)return setTimeout(go,300);const{tot}=calc(),N=S.cfg.names;let m;
   if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?tr('Tie! Both teams {0}',fmt(b)):tr('Winner: {0} with {1}',w[0],fmt(b))}
   else{const b=Math.max(...tot);m=tr('Winner: {0} with {1}',N.filter((n,i)=>tot[i]==b).join(', '),fmt(b))}
@@ -296,11 +298,11 @@ function editCell(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
   ov.querySelectorAll('button[data-k="'+k+'"]').forEach(x=>x.classList.toggle('sec',+x.dataset.v!=v));info()});
  const close=()=>{ov.hidden=true;ov.innerHTML=''};
  $('#ec').onclick=close;
- $('#es').onclick=()=>{r.bids[p]=b;r.took[p]=t;r.scores[p]=score(b,t,c,pen);close();keep();if(S.results.length==24)save(true);render()}}
+ $('#es').onclick=()=>{r.bids[p]=b;r.took[p]=t;r.scores[p]=score(b,t,c,pen);close();keep();if(S.results.length==TOTAL)save(true);render()}}
 function undo(){if(!S||WATCH)return;if(!S.log.length&&S.results.length){const r=S.results.pop();S.bids=[...r.bids];S.took=[...r.took];S.log=[...r.log]}
  while(S.log.length){const[k,p,a]=S.log.pop();S[k=='bid'?'bids':'took'][p]=null;if(!a)break}keep();render()}
 function save(fin){const{tot}=calc(),N=S.cfg.names,t=team(tot),b=Math.max(...(S.cfg.team?t:tot));
- const g={id:S.id,date:S.date,team:S.cfg.team,fin,names:N,pen:S.cfg.pen,aff:S.cfg.aff,results:S.results.map((r,i)=>({n:R[i].n,part:R[i].part+1,cards:R[i].cards,bids:r.bids,took:r.took,scores:r.scores})),
+ const g={id:S.id,date:S.date,team:S.cfg.team,mode:S.cfg.mode||'std',fin,names:N,pen:S.cfg.pen,aff:S.cfg.aff,results:S.results.map((r,i)=>({n:R[i].n,part:R[i].part+1,cards:R[i].cards,bids:r.bids,took:r.took,scores:r.scores})),
   totals:tot.map(v=>v/100),teams:S.cfg.team?t.map(v=>v/100):null,
   winner:S.cfg.team?[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]).join(' / '):N.filter((n,i)=>tot[i]==b).join(' / ')};
  G=G.filter(x=>x.id!=g.id);G.push(g);localStorage.setItem('joker_games',JSON.stringify(G))}
@@ -308,8 +310,8 @@ function csv(rows){return rows.map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+
 function dl(name,text){const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+text],{type:'text/csv'}));a.download=name;a.click()}
 function exportRounds(){const r=[['game_id','date','game_type','round','part','cards','player','seat','team','bid','took','hit','score']];
  G.forEach(g=>g.results.forEach(x=>g.names.forEach((n,p)=>r.push([g.id,g.date,g.team?'Teams':'Individual',x.n,x.part,x.cards,n,p+1,g.team?p%2+1:'',x.bids[p],x.took[p],+(x.bids[p]==x.took[p]),x.scores[p]]))));dl('joker_rounds.csv',csv(r))}
-function exportGames(){const r=[['game_id','date','game_type','finished','rounds_played','player1','player2','player3','player4','total_p1','total_p2','total_p3','total_p4','team1_total','team2_total','winner']];
- G.forEach(g=>r.push([g.id,g.date,g.team?'Teams':'Individual',+g.fin,g.results.length,...[0,1,2,3].map(i=>g.names[i]||''),...[0,1,2,3].map(i=>g.totals[i]??''),...(g.teams||['','']),g.winner]));dl('joker_games.csv',csv(r))}
+function exportGames(){const r=[['game_id','date','game_type','category','finished','rounds_played','player1','player2','player3','player4','total_p1','total_p2','total_p3','total_p4','team1_total','team2_total','winner']];
+ G.forEach(g=>r.push([g.id,g.date,g.team?'Teams':'Individual',g.mode||'std',+g.fin,g.results.length,...[0,1,2,3].map(i=>g.names[i]||''),...[0,1,2,3].map(i=>g.totals[i]??''),...(g.teams||['','']),g.winner]));dl('joker_games.csv',csv(r))}
 function stats(){VIEW='stats';const P={};G.filter(g=>g.fin).forEach(g=>g.names.forEach((n,p)=>{const k=n.toLowerCase(),o=P[k]=P[k]||{n,g:0,w:0,s:0,h:0,r:0};
   o.g++;o.s+=g.totals[p];if((' / '+g.winner+' ').toLowerCase().includes(n.toLowerCase())&&!g.team||g.team&&g.winner.toLowerCase().split(/ \/ | & /).includes(k))o.w++;
   g.results.forEach(x=>{o.r++;if(x.bids[p]==x.took[p])o.h++})}));
@@ -343,13 +345,13 @@ async function joinGame(){if(!LIVE_URL)return box(tr('Online sharing is not set 
   try{const r=await fetch(liveUrl(code));const d=await r.json();if(!d||!d.s){$('#jn').textContent=tr('Code not found.');return}
    ov.hidden=true;ov.innerHTML='';startWatch(code,d)}catch(e){$('#jn').textContent=tr('Could not connect.')}};
  $('#jg').onclick=go1;$('#jc').onkeydown=e=>{if(e.key=='Enter')go1()};$('#jc').focus()}
-function startWatch(code,d){WATCH={code,mine:S,last:d.s,timer:setInterval(pollWatch,3000)};S=JSON.parse(d.s);render()}
+function startWatch(code,d){WATCH={code,mine:S,last:d.s,timer:setInterval(pollWatch,3000)};S=JSON.parse(d.s);syncR();render()}
 async function pollWatch(){if(!WATCH)return;try{const r=await fetch(liveUrl(WATCH.code));const d=await r.json();
  if(!d||!d.s){if(!WATCH.ended){WATCH.ended=true;render()}return}
- const was=WATCH.ended;WATCH.ended=false;if(d.s!==WATCH.last||was){WATCH.last=d.s;S=JSON.parse(d.s);render()}}catch(e){}}
-function stopWatch(quiet){if(!WATCH)return;clearInterval(WATCH.timer);S=WATCH.mine;WATCH=null;if(!quiet){if(S&&S.cfg){render();setTimeout(go,300)}else setup()}}
+ const was=WATCH.ended;WATCH.ended=false;if(d.s!==WATCH.last||was){WATCH.last=d.s;S=JSON.parse(d.s);syncR();render()}}catch(e){}}
+function stopWatch(quiet){if(!WATCH)return;clearInterval(WATCH.timer);S=WATCH.mine;WATCH=null;syncR();if(!quiet){if(S&&S.cfg){render();setTimeout(go,300)}else setup()}}
 function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else if(w=='share')shareGame();else if(w=='join')joinGame();else newGame()}
-async function newGame(){if(WATCH)stopWatch(true);if(S&&S.share&&LIVE_URL)fetch(liveUrl(S.share),{method:'DELETE'}).catch(()=>{});if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
+async function newGame(){if(WATCH)stopWatch(true);if(S&&S.share&&LIVE_URL)fetch(liveUrl(S.share),{method:'DELETE'}).catch(()=>{});if(S&&S.results.length<TOTAL&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
 $('#mn').innerHTML=menuHTML();
 S&&S.cfg?(render(),setTimeout(go,300)):setup();
 </script></body></html>
