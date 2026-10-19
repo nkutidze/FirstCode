@@ -9,7 +9,7 @@ h1{color:var(--g);text-align:center;margin:6px 0;font-size:26px}h2{color:var(--g
 .card{background:var(--p);border:1px solid var(--d);border-radius:10px;padding:12px;margin:10px auto;max-width:520px}
 label{display:block;margin:8px 0 3px;font-weight:bold;color:var(--g)}input,select{width:100%;padding:10px;font:inherit;border:1px solid var(--d);border-radius:8px}
 .b{background:var(--g);color:#fff;border:2px solid var(--g);border-radius:8px;padding:10px 16px;font:bold 15px Georgia,serif;cursor:pointer}
-.b:hover{background:var(--g2)}.b.gh{background:#fff;color:var(--g)}.b:disabled{background:#e3e8e5;color:#9aa7a0;border-color:#e3e8e5;cursor:default}
+.b:hover{background:var(--g2)}.b.gh{background:#fff;color:var(--g)}.b:disabled{background:#e3e8e5;color:#9aa7a0;border-color:#e3e8e5;cursor:default}.b.sec:not(:disabled){background:#f3f4f4;color:#333;border-color:#d4d8d6}.b.sec:not(:disabled):hover{background:#e6e9e8}
 .row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.wide{width:100%;margin-top:8px}
 .tw{overflow:auto;border:1px solid var(--d);border-radius:14px;max-height:46vh;background:#fff;box-shadow:0 3px 12px rgba(11,107,79,.15)}
 table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;text-align:center}th{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:9px 4px;position:sticky;top:0;z-index:2}
@@ -23,14 +23,24 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 .st{display:inline-block;font-size:9.5px;font-weight:bold;padding:2px 6px;border-radius:10px;letter-spacing:.2px;white-space:nowrap}
 .box.on{border:2px solid #0b6b4f;background:linear-gradient(#f4fbf7,#e1f3ea);box-shadow:0 0 0 3px rgba(11,107,79,.18),0 2px 8px rgba(0,0,0,.1);padding:7px 2px 6px}
 .box.on .st{background:#0b6b4f;color:#fff}
-.box.lost .st{background:#fdecea;color:#b23a2c}.box.lost b{color:#6b7a73}
+.box.lost .st{background:#fdecea;color:#b23a2c}
 .box.open .st{background:#eef2f0;color:#5c6b64}.mut{color:#5c6b64}
-.teams{display:flex;justify-content:space-around;background:var(--p);border:2px solid var(--g);border-radius:8px;padding:6px;text-align:center;font-size:13px}.teams b{display:block;font-size:26px;color:var(--g)}
+.teams{display:flex;gap:6px;margin:0 0 6px}.tc{flex:1;min-width:0;background:var(--p);border:1px solid var(--d);border-radius:12px;padding:4px 6px;text-align:center;line-height:1.2}.tn{display:block;font-size:10.5px;color:#5c6b64;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tc>b{display:block;font-size:19px;color:var(--g)}.tg{display:block;font-size:10.5px;color:#0b6b4f}.tg b{font-size:11.5px}
+.rk{min-height:20px;margin-bottom:3px}.gcard{margin-top:-2px;background:#f1f5f3;border:1px solid var(--d);border-radius:12px;text-align:center;padding:6px 3px;font-size:11px;font-weight:bold;color:#0b6b4f;line-height:1.25}.gcard b{font-size:14px}.rp{display:inline-block;padding:1px 2px;font-size:10.5px;font-weight:bold;white-space:nowrap}
+.rp.r1{color:#0b6b4f}.rp.r2{color:#0b6b4f}.rp.r3{color:#5c6b64}.rp.rl{color:#b23a2c}
+.seg{display:flex;gap:6px}.seg button{flex:1;padding:11px 6px;border:2px solid var(--d);background:#fff;border-radius:10px;font:bold 14px Georgia,serif;color:#5c6b64;cursor:pointer}
+.seg.wrap{flex-wrap:wrap}.seg.wrap button{flex:1 1 28%}.seg.wrap button[data-v=c]{flex:1 1 100%}
+.seg button.on{border-color:var(--g);background:var(--g);color:#fff}
+.dealrow{display:flex;gap:8px;align-items:stretch;justify-content:center;flex-wrap:wrap;margin:10px 0}
+.deal{flex:1 1 190px;display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#e3f4ec,#cdeadb);color:#0b6b4f;border:1px solid #b7dcc9;border-radius:14px;padding:10px 16px;box-shadow:0 2px 8px rgba(11,107,79,.12)}
+.deal .ic{font-size:30px;line-height:1;background:rgba(255,255,255,.7);border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
+.deal b{display:block;font-size:19px;line-height:1.2}.deal small{display:block;font-size:13px;opacity:.92;margin-top:2px}
+.dealrow .bal{margin:0;border-radius:14px;display:flex;align-items:center;padding:6px 22px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .bal{text-align:center;border:2px solid;border-radius:8px;padding:4px 20px;margin:8px auto;width:max-content;font-weight:bold;font-size:20px}.bal small{display:block;font:italic 12px Georgia}
 #hint{text-align:center;color:var(--g);font-weight:bold;margin:6px 0}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9}
 #ov[hidden]{display:none}
-.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}
+.dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
 .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0}.grid .b{font-size:20px;padding:12px 0}.note{color:var(--r);font-weight:bold}
 .chk{display:flex;gap:6px;align-items:center;margin:4px 0}.chk input{width:auto}
 [hidden]{display:none!important}
@@ -45,7 +55,7 @@ table.sc td b{display:block;font-size:16px;line-height:1.15}
 table.sc small{display:block;font-size:11px;font-weight:normal;color:#5c6b64;margin-top:1px}
 table.sc th small{color:#cfeadf;margin-top:0}
 .pn{display:block;max-width:78px;margin:0 auto;overflow:hidden;text-overflow:ellipsis}
-table.sc td.hit{background:#e8f6ee}table.sc td.hit b{color:#0b6b4f}
+table.sc td.ed{cursor:pointer}table.sc td.ed:active{filter:brightness(.93)}table.sc td.hit{background:#e8f6ee}table.sc td.hit b{color:#0b6b4f}
 table.sc td.miss{background:#fff2ef}table.sc td.miss b{color:#b23a2c}
 table.sc td:first-child,table.sc th:first-child{position:sticky;left:0;z-index:1;background:#f3f8f5;border-right:1px solid #dbe6e0}
 table.sc th:first-child{z-index:3;background:var(--g)}
@@ -62,25 +72,46 @@ table.sc tr.live td{background:#fff8e6;border-top:2px dashed #e0a020}
 table.sc tr.live td:first-child{background:#ffefc4}
 table.sc tr.live b{color:#b35a00}
 </style></head><body>
-<header class="top"><span class="ttl">♠ ♥ JOKER ♦ ♣</span><button id="mb" class="mb" onclick="tog(event)" aria-label="Menu">☰</button><nav id="mn" hidden><button onclick="menu('stats')">📊 Statistics</button><button onclick="menu('new')">➕ New game</button></nav></header><div id="app"></div><div id="ov" hidden></div>
+<header class="top"><span class="ttl">♠ ♥ JOKER ♦ ♣</span><button id="mb" class="mb" onclick="tog(event)" aria-label="Menu">☰</button><nav id="mn" hidden></nav></header><div id="app"></div><div id="ov" hidden></div>
 <script>
+let LANG=localStorage.getItem('joker_lang')==='en'?'en':'ka',VIEW='setup',SV=null;document.documentElement.lang=LANG;
+const KA={'Statistics':'სტატისტიკა','New game':'ახალი თამაში','Game rules':'თამაშის წესები','Game type':'თამაშის ტიპი','Individual':'ინდივიდუალური','Teams':'გუნდური',
+'Teams: Player 1 & 3 vs Player 2 & 4':'გუნდური: მოთამაშე 1 და 3 vs მოთამაშე 2 და 4','Last score rule':'პრემიაზე გასვლა','Affected':'ბოლო იშლება','Not affected':'ბოლო არ იშლება',
+'Penalty score':'ჯარიმის ქულა','100 × cards dealt':'სადაც დაგეწევა','Other number':'სხვა რიცხვი',
+'Players':'მოთამაშეები','Player':'მოთამაშე','Start game':'თამაშის დაწყება','Please enter all 4 player names.':'გთხოვთ, შეიყვანეთ 4 მოთამაშის სახელი.','Each player needs a different name.':'თითოეულ მოთამაშეს განსხვავებული სახელი სჭირდება.',
+'Game over':'თამაში დასრულდა','deals {0} card':'არიგებს {0} კარტს','deals {0} cards':'არიგებს {0} კარტს','TOTAL':'ჯამი','Part':'ნაწილი','Cards':'კარტი','Team':'გუნდი','TEAM':'გუნდი','cut':'ჩამოჭრა','taken':'აიღო',
+'premia lost':'პრემია დაკარგულია','premia open':'პრემია ღიაა','★ ON PREMIA':'★ პრემიაზეა','★ PREMIA WON':'★ პრემია მოიგო','OVER':'წაგლეჯვა','EXTRA':'შეტენვა',
+'{0} card will be cut from someone':'{0} კარტი ჩამოეჭრება ვინმეს','{0} cards will be cut from someone':'{0} კარტი ჩამოეჭრება ვინმეს','{0} card goes with someone':'{0} კარტი ვინმეს მიჰყვება','{0} cards go with someone':'{0} კარტი ვინმეს მიჰყვება',
+'Next to bid: {0}':'შემდეგი განცხადება: {0}','All bids are in. Play the round, then enter taken.':'ყველა განცხადება მიღებულია. ითამაშეთ რაუნდი, შემდეგ შეიყვანეთ აღებული.','Taken: {0} of {1}':'აღებული: {0} / {1}',
+'↶ Undo':'↶ გაუქმება','Game finished':'თამაში დასრულდა','Enter bid: {0}':'განცხადება: {0}','Enter taken: {0}':'აღებული: {0}',
+'Cannot bid {0} (the bids would be full)':'ვერ დაასახელებთ {0}-ს (განცხადებები სრული იქნება)','Round {0} • {1} cards • bids {2}':'რაუნდი {0} • {1} კარტი • {2} ამბობს','1st':'1-ლი','2nd':'მე-2','3rd':'მე-3','4th':'მე-4',
+'Round {0} • bid: {1} • {2} left':'რაუნდი {0} • განცხადება: {1} • დარჩა {2}','✓ Took as bid ({0})':'✓ აიღო განცხადებისამებრ ({0})','BID':'განცხადება','TAKEN':'აღებული','Cancel':'გაუქმება','place':'ადგილი','To 1st: {0}':'პირველამდე: {0}','Last place':'ბოლო ადგილი','Pass':'პასი','OK':'კარგი',
+'Delete ALL saved games?':'ყველა შენახული თამაშის წაშლა?','Delete':'წაშლა','Start a new game?\nThe current unfinished game will be lost.':'დავიწყოთ ახალი თამაში?\nმიმდინარე დაუსრულებელი თამაში დაიკარგება.','Start new':'დაწყება',
+'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
+'{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
+'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'შეგივსეს','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი'};
+function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
+const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
+function setLang(){if(VIEW==='setup'&&$('#ty'))SV={nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pe:$('#pe').value};
+ LANG=LANG==='ka'?'en':'ka';localStorage.setItem('joker_lang',LANG);document.documentElement.lang=LANG;$('#mn').innerHTML=menuHTML();
+ if(VIEW==='stats')stats();else if(VIEW==='game'&&S)render();else setup()}
 const PARTS=[[1,2,3,4,5,6,7,8],[9,9,9,9],[8,7,6,5,4,3,2,1],[9,9,9,9]],R=[];
 PARTS.forEach((p,i)=>p.forEach((c,j)=>R.push({n:R.length+1,part:i,cards:c,last:j==p.length-1})));
 const $=s=>document.querySelector(s),ORD=['1st','2nd','3rd','4th'];
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const fmt=v=>{let t=(v/100).toFixed(2).replace(/0+$/,'').replace(/\.$/,'');return t=='-0'||t==''?'0':t};
-const bl=n=>n==0?'Pass':''+n,sum=a=>a.reduce((x,y)=>x+(y||0),0),team=v=>[v[0]+v[2],v[1]+v[3]];
-const order=r=>[0,1,2,3].map(s=>(r+s)%4);
+const bl=n=>n==0?tr('Pass'):''+n,sum=a=>a.reduce((x,y)=>x+(y||0),0),team=v=>[v[0]+v[2],v[1]+v[3]];
+const order=r=>[0,1,2,3].map(s=>(r+1+s)%4);
 const score=(b,t,c,pen)=>b>0&&t==0?-pen:b!=t?t*10:b==0?50:b==c?c*100:100+(b-1)*50;
-const balText=(t,c)=>t>c?'OVER '+(t-c):t<c?'EXTRA '+(c-t):'';
-const pill=a=>a>0?`<i class="pl up">+${fmt(a)} ★</i>`:a<0?`<i class="pl dn">${fmt(a)} cut</i>`:'';
-const td=(r,x)=>r.k=='t'?`<td><b>${x.v}</b>${pill(x.a)}</td>`
- :r.k=='l'?`<td><b>${x.b==null?'·':bl(x.b)}</b><small>${x.t==null?'taken …':'taken '+x.t}</small></td>`
- :`<td class="${x.b==x.t?'hit':'miss'}"><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
+const balText=(a,c)=>a>c?tr('OVER')+' '+(a-c):a<c?tr('EXTRA')+' '+(c-a):'';
+const pill=a=>a>0?`<i class="pl up">+${fmt(a)} ★</i>`:a<0?`<i class="pl dn">${fmt(a)} ${tr('cut')}</i>`:'';
+const td=(r,x,j)=>r.k=='t'?`<td><b>${x.v}</b>${pill(x.a)}</td>`
+ :r.k=='l'?`<td><b>${x.b==null?'·':bl(x.b)}</b><small>${x.t==null?tr('taken')+' …':tr('taken')+' '+x.t}</small></td>`
+ :`<td class="ed ${x.b==x.t?'hit':'miss'}" onclick="editCell(${r.i},${j})"><b>${x.s}</b><small>${bl(x.b)} / ${x.t}</small></td>`;
 function tableHTML(rows,N,T){
- const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>Team ${p%2+1}</small>`:''}</th>`).join('')+(T?'<th>Team 1</th><th>Team 2</th>':'');
- const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">TOTAL</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map(x=>td(r,x)).join('')}${T?`<td class="tm">${r.t[0]}</td><td class="tm">${r.t[1]}</td>`:''}</tr>`).join('');
- return`<table class="sc"><thead><tr><th>Cards</th>${head}</tr></thead><tbody>${body}</tbody></table>`}
+ const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>${tr('Team')} ${p%2+1}</small>`:''}</th>`).join('')+'';
+ const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
+ return`<table class="sc"><thead><tr><th>${tr('Round')}</th>${head}</tr></thead><tbody>${body}</tbody></table>`}
 function adj(ps,hs,aff,tm){const pr=[0,1,2,3].filter(p=>hs[p].length&&hs[p].every(x=>x)),a=[0,0,0,0];
  pr.forEach(p=>a[p]=Math.max(...ps[p]));
  if(pr.length==1)for(let p=0;p<4;p++)if(p!=pr[0]&&!(tm&&p%2==pr[0]%2)){let c=Math.max(...ps[p]);if(aff)c+=ps[p][ps[p].length-1];a[p]=-c}return a}
@@ -88,56 +119,68 @@ let S=null,G=JSON.parse(localStorage.getItem('joker_games')||'[]');
 const keep=()=>localStorage.setItem('joker_state',JSON.stringify(S));
 try{S=JSON.parse(localStorage.getItem('joker_state'))}catch(e){}
 function box(msg,yes,no){return new Promise(res=>{const ov=$('#ov');ov.hidden=false;
- ov.innerHTML=`<div class="dlg"><div style="white-space:pre-line;margin:6px 0 14px;font-size:16px">${esc(msg)}</div><div class="row"><button class="b" id="by">${yes||'OK'}</button>${no?`<button class="b gh" id="bn">${no}</button>`:''}</div></div>`;
+ ov.innerHTML=`<div class="dlg"><div style="white-space:pre-line;margin:6px 0 14px;font-size:16px">${esc(msg)}</div><div class="row"><button class="b" id="by">${yes||tr('OK')}</button>${no?`<button class="b gh" id="bn">${no}</button>`:''}</div></div>`;
  const c=v=>{ov.hidden=true;ov.innerHTML='';res(v)};$('#by').onclick=()=>c(true);if(no)$('#bn').onclick=()=>c(false)})}
-async function delAll(){if(await box('Delete ALL saved games?','Delete','Cancel')){G=[];localStorage.removeItem('joker_games');stats()}}
-function setup(){S=null;$('#app').innerHTML=`<div class="card"><h2>Game rules</h2>
-<label>Game type</label><select id="ty"><option>Individual</option><option>Teams</option></select>
-<div class="mut" style="font-size:12px">Teams: Player 1 &amp; 3 vs Player 2 &amp; 4</div>
-<label>Last score rule</label><select id="af"><option value="1">Affected</option><option value="0">Not affected</option></select>
-<label>Penalty score</label><select id="pm" onchange="$('#pe').disabled=this.value=='c'"><option value="f">Fixed penalty (number below)</option><option value="c">100 × cards dealt (round 1 = 100, round 2 = 200 …)</option></select><input id="pe" type="number" value="0" min="0" step="10" style="margin-top:6px">
-<label>Players</label>${[1,2,3,4].map(i=>`<input class="nm" placeholder="Player ${i}" style="margin:3px 0">`).join('')}
-<button class="b wide" onclick="start()">Start game</button></div>`}
+async function delAll(){if(await box(tr('Delete ALL saved games?'),tr('Delete'),tr('Cancel'))){G=[];localStorage.removeItem('joker_games');stats()}}
+const seg=(id,o,d)=>`<input type="hidden" id="${id}" value="${d}"><div class="seg" id="${id}s">${o.map(([v,l])=>`<button type="button" data-v="${v}" class="${v==d?'on':''}" onclick="pick('${id}','${v}')">${l}</button>`).join('')}</div>`;
+function pick(id,v){$('#'+id).value=v;document.querySelectorAll('#'+id+'s button').forEach(b=>b.classList.toggle('on',b.dataset.v==v))}
+function penShow(){const m=$('#pm').value,v=$('#pe').value;document.querySelectorAll('#pbs button').forEach(b=>b.classList.toggle('on',m=='c'?b.dataset.v=='c':b.dataset.v==v));$('#pe').disabled=m=='c'}
+function penPick(m,v){$('#pm').value=m;if(m=='f')$('#pe').value=v;penShow()}
+function penType(){$('#pm').value='f';penShow()}
+function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="card"><h2>${tr('Game rules')}</h2>
+<label>${tr('Game type')}</label>${seg('ty',[['Individual',tr('Individual')],['Teams',tr('Teams')]],'Individual')}
+<div class="mut" style="font-size:12px">${tr('Teams: Player 1 & 3 vs Player 2 & 4')}</div>
+<label>${tr('Last score rule')}</label>${seg('af',[['1',tr('Affected')],['0',tr('Not affected')]],'1')}
+<label>${tr('Penalty score')}</label><input type="hidden" id="pm" value="f"><div class="seg wrap" id="pbs">${[200,300,400].map(v=>`<button type="button" data-v="${v}" class="${v==200?'on':''}" onclick="penPick('f',${v})">${v}</button>`).join('')}<button type="button" data-v="c" onclick="penPick('c')">${tr('100 × cards dealt')}</button></div>
+<input id="pe" type="number" value="200" min="0" step="10" placeholder="${tr('Other number')}" oninput="penType()" style="margin-top:6px">
+<label>${tr('Players')}</label>${[1,2,3,4].map(i=>`<input class="nm" placeholder="${tr('Player')} ${i}" style="margin:3px 0">`).join('')}
+<button class="b wide" onclick="start()">${tr('Start game')}</button></div>`;
+ if(SV){document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('af',SV.af);$('#pm').value=SV.pm;$('#pe').value=SV.pe;penShow();SV=null}}
 function start(){const n=[...document.querySelectorAll('.nm')].map(i=>i.value.trim());
- if(n.includes(''))return box('Please enter all 4 player names.');
- if(new Set(n.map(x=>x.toLowerCase())).size<4)return box('Each player needs a different name.');
+ if(n.includes(''))return box(tr('Please enter all 4 player names.'));
+ if(new Set(n.map(x=>x.toLowerCase())).size<4)return box(tr('Each player needs a different name.'));
  S={cfg:{team:$('#ty').value=='Teams',aff:$('#af').value=='1',pen:+$('#pe').value||0,penCards:$('#pm').value=='c',names:n},results:[],bids:[null,null,null,null],took:[null,null,null,null],log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
  keep();render();setTimeout(go,300)}
 function calc(){const rows=[],tot=[0,0,0,0];let ps=[[],[],[],[]],hs=[[],[],[],[]];
  S.results.forEach((r,i)=>{const I=R[i],cells=[];
   for(let p=0;p<4;p++){ps[p].push(r.scores[p]);hs[p].push(r.bids[p]==r.took[p]);tot[p]+=r.scores[p];cells.push({b:r.bids[p],t:r.took[p],s:r.scores[p]})}
-  rows.push({k:'r',c:I.cards,cells,t:team(r.scores)});
+  rows.push({k:'r',i,c:I.cards,cells,t:team(r.scores)});
   if(I.last){const a=adj(ps,hs,S.cfg.aff,S.cfg.team),pt=[],cs=[];
    for(let p=0;p<4;p++){tot[p]+=a[p];const v=sum(ps[p])+a[p];pt.push(v);cs.push({v:fmt(v),a:a[p]})}
-   rows.push({k:'t',c:'TOTAL',sub:'Part '+(I.part+1),cells:cs,t:team(pt).map(fmt)});ps=[[],[],[],[]];hs=[[],[],[],[]]}});
+   rows.push({k:'t',c:'TOTAL',sub:tr('Part')+' '+(I.part+1),cells:cs,t:team(pt).map(fmt)});ps=[[],[],[],[]];hs=[[],[],[],[]]}});
  return{rows,tot}}
 function nextStep(){const o=order(S.results.length);for(const p of o)if(S.bids[p]==null)return['bid',p];
  for(const p of o)if(S.took[p]==null)return['took',p];return null}
-function render(){const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=24,{rows,tot}=calc();
+function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=24,{rows,tot}=calc();
  if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:[0,1,2,3].map(p=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
  const part=R[Math.min(k,23)].part,tt=team(tot);
- const hd=`<h2>${done?'Game over':`${esc(N[order(k)[3]])} deals ${R[k].cards} ${R[k].cards==1?'card':'cards'}`}</h2>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
- if(T)tm=`<div class="teams" style="margin-top:8px">${[0,1].map(t=>`<div>TEAM ${t+1}<br>${esc(N[t])} &amp; ${esc(N[t+2])}<b style="${tt[t]==Math.max(...tt)?'':'color:#1a1a1a'}">${fmt(tt[t])}</b></div>`).join('')}</div>`;
+ const rk=tot.map(v=>1+tot.filter(x=>x>v).length),mn=Math.min(...tot),same=tot.every(v=>v==tot[0]);
+ const rb=p=>{if(!k||same||T)return'';const last=tot[p]==mn,r=rk[p],top=Math.max(...tot);return (last?`<span class="rp rl">🔻 ${tr('Last place')}</span>`:`<span class="rp r${r}">${['🥇','🥈','🥉'][r-1]} ${tr(['1st','2nd','3rd'][r-1])} ${tr('place')}</span>`)};
+ const gc=p=>(!k||same||rk[p]==1)?'<div></div>':`<div class="gcard">${tr('To 1st: {0}','<b>'+fmt(Math.max(...tot)-tot[p])+'</b>')}</div>`,gcs=T?'':N.map((n,p)=>gc(p)).join('');
+ const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[k%4])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
+ if(T){const mx=Math.max(...tt);tm=`<div class="teams">${[0,1].map(t=>`<div class="tc"><span class="tn">${tr('TEAM')} ${t+1} · ${esc(N[t])} &amp; ${esc(N[t+2])}</span><b style="${tt[t]==mx?'':'color:#1a1a1a'}">${fmt(tt[t])}</b>${tt[t]<mx?`<span class="tg">${tr('To 1st: {0}','<b>'+fmt(mx-tt[t])+'</b>')}</span>`:''}</div>`).join('')}</div>`}
  const bx='<div class="boxes">'+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
-  const st=m.includes('x')?['premia lost','lost']:!m.includes('h')?['premia open','open']:m.includes('o')?['★ ON PREMIA','on']:['★ PREMIA WON','on'];
-  return`<div class="box ${st[1]}"><div class="bn">${esc(n)}</div><b>${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div><span class="st">${st[0]}</span></div>`}).join('')+'</div>';
+  const st=m.includes('x')?[tr('premia lost'),'lost']:!m.includes('h')?[tr('premia open'),'open']:m.includes('o')?[tr('★ ON PREMIA'),'on']:[tr('★ PREMIA WON'),'on'];
+  return`<div class="box ${st[1]}"><div class="rk">${rb(p)}</div><div class="bn">${esc(n)}</div><b>${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div></div>`}).join('')+(gcs.includes('gcard')?gcs:'')+'</div>';
  const st=done?null:nextStep();let bal='';
- if(st&&S.bids.every(b=>b!=null)){const t=balText(sum(S.bids),R[k].cards);if(t){const n=+t.split(' ')[1],over=t[0]=='O',c=over?'#c0392b':'#1565c0',w=n==1?'card':'cards';
-  bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}<small>${n} ${w} ${over?'will be cut from someone':n==1?'goes with someone':'go with someone'}</small></div>`}}
- let h=hd+bx+bal+tbl+tm+`<div id="hint">${done?'':st[0]=='bid'?'Next to bid: '+esc(N[st[1]]):sum(S.took)==0?'All bids are in. Play the round, then enter taken.':'Taken: '+sum(S.took)+' of '+R[k].cards}</div>
-<div class="row"><button class="b gh" onclick="undo()">↶ Undo</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?'Game finished':st[0]=='bid'?'Enter bid: '+esc(N[st[1]]):'Enter taken: '+esc(N[st[1]])}</button></div>`;
+ if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'#c0392b':'#1565c0';
+  bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}</div>`}}
+ let h=tm+bx+`<div class="dealrow">${hd}${bal}</div>`+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
+<div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`;
  $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
 function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
- let note='',sub,extra='';
- if(kind=='bid'){if(p==o[3]){const b=c-sum(o.slice(0,3).map(q=>S.bids[q]));if(b>=0&&b<=c){dis.add(b);note=`Cannot bid ${bl(b)} (the bids would be full)`}}
-  sub=`Round ${I.n} • ${c} cards • bids ${ORD[o.indexOf(p)]}`}
+ let note='',sub,extra='',fi='',cls='';
+ if(kind=='bid'){if(p==o[3]){const b=c-sum(o.slice(0,3).map(q=>S.bids[q]));if(b>=0&&b<=c){dis.add(b)}}
+  sub='';
+  const ix=o.indexOf(p),rem=c-sum(o.slice(0,ix).map(q=>S.bids[q]));
+  if(ix<3){fi=rem>0?tr('To fill: {0}',rem):'⚠ '+tr('Filled');cls=rem>0?'':' warn'}else if(rem==0){fi='⚠ '+tr('You are filled!');cls=' bad'}}
  else{const rem=c-sum(S.took);for(let n=rem+1;n<=c;n++)dis.add(n);const bal=balText(sum(S.bids),c),b=S.bids[p];
-  sub=`Round ${I.n} • bid: ${bl(b)} • ${rem} left`+(bal?' • '+bal:'');
-  extra=`<button class="b wide" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ Took as bid (${bl(b)})</button>`}
+  sub='';
+  extra=`<button class="b" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ ${bl(b)}</button>`}
  const ov=$('#ov');ov.hidden=false;
- ov.innerHTML=`<div class="dlg"><h3>${esc(N[p])}${S.cfg.team?' (Team '+(p%2+1)+')':''} – ${kind=='bid'?'BID':'TAKEN'}</h3><div style="font-style:italic;margin-top:4px">${sub}</div><div class="note">${note}</div>
- <div class="grid">${Array.from({length:c+1},(_,n)=>`<button class="b" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>${extra}
- <button class="b gh wide" data-v="x">Cancel</button></div>`;
+ ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(N[p])}${S.cfg.team?' ('+tr('Team')+' '+(p%2+1)+')':''} – ${kind=='bid'?tr('BID'):tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
+ <div class="grid">${extra}${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?'':`<button class="b${kind=='took'?' sec':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
+ <button class="b gh wide" data-v="x">${tr('Cancel')}</button></div>`;
  const close=v=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res(v)};
  const key=e=>{if(e.key=='Escape')close(null);else if(/^\d$/.test(e.key)&&+e.key<=c&&!dis.has(+e.key))close(+e.key)};
  document.addEventListener('keydown',key);
@@ -153,9 +196,25 @@ function finish(){const I=R[S.results.length];
  S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.penCards?100*I.cards:S.cfg.pen)),log:[...S.log]});
  S.bids=[null,null,null,null];S.took=[null,null,null,null];S.log=[];keep();render();
  if(S.results.length==24){save(true);const{tot}=calc(),N=S.cfg.names;let m;
-  if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?`Tie! Both teams ${fmt(b)}`:`Winner: ${w[0]} with ${fmt(b)}`}
-  else{const b=Math.max(...tot);m=`Winner: ${N.filter((n,i)=>tot[i]==b).join(', ')} with ${fmt(b)}`}
-  setTimeout(()=>box(m+'\n\nSaved in Statistics.'),100)}else setTimeout(go,300)}
+  if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?tr('Tie! Both teams {0}',fmt(b)):tr('Winner: {0} with {1}',w[0],fmt(b))}
+  else{const b=Math.max(...tot);m=tr('Winner: {0} with {1}',N.filter((n,i)=>tot[i]==b).join(', '),fmt(b))}
+  setTimeout(()=>box(m+'\n\n'+tr('Saved in Statistics.')),100)}else setTimeout(go,300)}
+function editCell(i,p){const ov=$('#ov');if(!ov.hidden)return;
+ const r=S.results[i],c=R[i].cards,N=S.cfg.names,pen=S.cfg.penCards?100*c:S.cfg.pen;let b=r.bids[p],t=r.took[p];
+ const row=(k,v)=>`<div class="grid">${Array.from({length:c+1},(_,n)=>`<button class="b${n==v?'':' sec'}" data-k="${k}" data-v="${n}">${bl(n)}</button>`).join('')}</div>`;
+ ov.hidden=false;
+ ov.innerHTML=`<div class="dlg"><h3>${esc(N[p])} • ${c} ${tr('Cards')}</h3>
+ <div style="font-weight:bold;margin-top:8px;color:#5c6b64">${tr('BID')}</div>${row('b',b)}
+ <div style="font-weight:bold;color:#5c6b64">${tr('TAKEN')}</div>${row('t',t)}
+ <div class="fi" id="ei"></div><div class="note" id="en"></div>
+ <div class="row" style="margin-top:10px"><button class="b" id="es">${tr('Save')}</button><button class="b gh" id="ec">${tr('Cancel')}</button></div></div>`;
+ const info=()=>{$('#ei').textContent=tr('Score')+': '+fmt(score(b,t,c,pen));const ts=sum(r.took.map((x,q)=>q==p?t:x));$('#en').textContent=ts==c?'':tr('Taken: {0} of {1}',ts,c)};
+ info();
+ ov.querySelectorAll('button[data-k]').forEach(el=>el.onclick=()=>{const k=el.dataset.k,v=+el.dataset.v;if(k=='b')b=v;else t=v;
+  ov.querySelectorAll('button[data-k="'+k+'"]').forEach(x=>x.classList.toggle('sec',+x.dataset.v!=v));info()});
+ const close=()=>{ov.hidden=true;ov.innerHTML=''};
+ $('#ec').onclick=close;
+ $('#es').onclick=()=>{r.bids[p]=b;r.took[p]=t;r.scores[p]=score(b,t,c,pen);close();keep();if(S.results.length==24)save(true);render()}}
 function undo(){if(!S)return;if(!S.log.length&&S.results.length){const r=S.results.pop();S.bids=[...r.bids];S.took=[...r.took];S.log=[...r.log]}
  while(S.log.length){const[k,p,a]=S.log.pop();S[k=='bid'?'bids':'took'][p]=null;if(!a)break}keep();render()}
 function save(fin){const{tot}=calc(),N=S.cfg.names,t=team(tot),b=Math.max(...(S.cfg.team?t:tot));
@@ -169,20 +228,21 @@ function exportRounds(){const r=[['game_id','date','game_type','round','part','c
  G.forEach(g=>g.results.forEach(x=>g.names.forEach((n,p)=>r.push([g.id,g.date,g.team?'Teams':'Individual',x.n,x.part,x.cards,n,p+1,g.team?p%2+1:'',x.bids[p],x.took[p],+(x.bids[p]==x.took[p]),x.scores[p]]))));dl('joker_rounds.csv',csv(r))}
 function exportGames(){const r=[['game_id','date','game_type','finished','rounds_played','player1','player2','player3','player4','total_p1','total_p2','total_p3','total_p4','team1_total','team2_total','winner']];
  G.forEach(g=>r.push([g.id,g.date,g.team?'Teams':'Individual',+g.fin,g.results.length,...g.names,...g.totals,...(g.teams||['','']),g.winner]));dl('joker_games.csv',csv(r))}
-function stats(){const P={};G.filter(g=>g.fin).forEach(g=>g.names.forEach((n,p)=>{const k=n.toLowerCase(),o=P[k]=P[k]||{n,g:0,w:0,s:0,h:0,r:0};
+function stats(){VIEW='stats';const P={};G.filter(g=>g.fin).forEach(g=>g.names.forEach((n,p)=>{const k=n.toLowerCase(),o=P[k]=P[k]||{n,g:0,w:0,s:0,h:0,r:0};
   o.g++;o.s+=g.totals[p];if((' / '+g.winner+' ').toLowerCase().includes(n.toLowerCase())&&!g.team||g.team&&g.winner.toLowerCase().split(/ \/ | & /).includes(k))o.w++;
   g.results.forEach(x=>{o.r++;if(x.bids[p]==x.took[p])o.h++})}));
  const L=Object.values(P).sort((a,b)=>b.w-a.w||b.s/b.g-a.s/a.g);
- $('#app').innerHTML=`<div class="card"><h2>Statistics</h2><div class="mut" style="text-align:center;font-size:13px">${G.filter(g=>g.fin).length} finished games saved on this phone</div>
- <div class="tw" style="margin-top:8px"><table><tr><th>Player</th><th>Games</th><th>Wins</th><th>Avg total</th><th>Bid hit %</th></tr>
- ${L.map(o=>`<tr><td>${esc(o.n)}</td><td>${o.g}</td><td>${o.w}</td><td>${(o.s/o.g).toFixed(2)}</td><td>${o.r?Math.round(100*o.h/o.r):0}%</td></tr>`).join('')||'<tr><td colspan="5">No finished games yet</td></tr>'}</table></div>
- <button class="b wide" onclick="exportRounds()">Download rounds CSV</button><button class="b wide" onclick="exportGames()">Download games CSV</button>
- <button class="b gh wide" onclick="delAll()">Delete all saved games</button>
- <button class="b gh wide" onclick="S?render():setup()">← Back</button></div>`}
+ $('#app').innerHTML=`<div class="card"><h2>${tr('Statistics')}</h2><div class="mut" style="text-align:center;font-size:13px">${tr('{0} finished games saved on this phone',G.filter(g=>g.fin).length)}</div>
+ <div class="tw" style="margin-top:8px"><table><tr><th>${tr('Player')}</th><th>${tr('Games')}</th><th>${tr('Wins')}</th><th>${tr('Avg total')}</th><th>${tr('Bid hit %')}</th></tr>
+ ${L.map(o=>`<tr><td>${esc(o.n)}</td><td>${o.g}</td><td>${o.w}</td><td>${(o.s/o.g).toFixed(2)}</td><td>${o.r?Math.round(100*o.h/o.r):0}%</td></tr>`).join('')||`<tr><td colspan="5">${tr('No finished games yet')}</td></tr>`}</table></div>
+ <button class="b wide" onclick="exportRounds()">${tr('Download rounds CSV')}</button><button class="b wide" onclick="exportGames()">${tr('Download games CSV')}</button>
+ <button class="b gh wide" onclick="delAll()">${tr('Delete all saved games')}</button>
+ <button class="b gh wide" onclick="S?render():setup()">${tr('← Back')}</button></div>`}
 function tog(e){e.stopPropagation();$('#mn').hidden=!$('#mn').hidden}
 document.addEventListener('click',()=>{$('#mn').hidden=true});
 document.addEventListener('keydown',e=>{if(e.key=='Escape')$('#mn').hidden=true});
-function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else newGame()}
-async function newGame(){if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box('Start a new game?\nThe current unfinished game will be lost.','Start new','Cancel')))return;localStorage.removeItem('joker_state');setup()}
+function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else newGame()}
+async function newGame(){if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
+$('#mn').innerHTML=menuHTML();
 S&&S.cfg?(render(),setTimeout(go,300)):setup();
 </script></body></html>
