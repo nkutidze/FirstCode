@@ -14,8 +14,17 @@ label{display:block;margin:8px 0 3px;font-weight:bold;color:var(--g)}input,selec
 .tw{overflow:auto;border:1px solid var(--d);border-radius:14px;max-height:46vh;background:#fff;box-shadow:0 3px 12px rgba(11,107,79,.15)}
 table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;text-align:center}th{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:9px 4px;position:sticky;top:0;z-index:2}
 td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
-.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}.box{background:var(--p);border:2px solid var(--d);border-radius:8px;text-align:center;padding:4px;font-size:12px}
-.box.on{border-color:var(--g)}.box b{display:block;font-size:20px;color:var(--g)}.mut{color:#5c6b64}
+.boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}.box{background:#fff;border:1px solid var(--d);border-radius:14px;text-align:center;padding:8px 3px 7px;font-size:12px;box-shadow:0 2px 8px rgba(11,107,79,.12);min-width:0}
+.box .bn{font-size:12px;color:#5c6b64;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px}
+.box b{display:block;font-size:22px;color:var(--g);margin:1px 0 5px;line-height:1.1}
+.pips{display:flex;justify-content:center;flex-wrap:wrap;gap:2px;min-height:8px;margin-bottom:6px}
+.pips i{width:6px;height:6px;border-radius:50%;border:1px solid #b9c8c0;box-sizing:border-box}
+.pips i.h{background:var(--g);border-color:var(--g)}.pips i.x{background:var(--r);border-color:var(--r)}
+.st{display:inline-block;font-size:9.5px;font-weight:bold;padding:2px 6px;border-radius:10px;letter-spacing:.2px;white-space:nowrap}
+.box.on{border:2px solid #0b6b4f;background:linear-gradient(#f4fbf7,#e1f3ea);box-shadow:0 0 0 3px rgba(11,107,79,.18),0 2px 8px rgba(0,0,0,.1);padding:7px 2px 6px}
+.box.on .st{background:#0b6b4f;color:#fff}
+.box.lost .st{background:#fdecea;color:#b23a2c}.box.lost b{color:#6b7a73}
+.box.open .st{background:#eef2f0;color:#5c6b64}.mut{color:#5c6b64}
 .teams{display:flex;justify-content:space-around;background:var(--p);border:2px solid var(--g);border-radius:8px;padding:6px;text-align:center;font-size:13px}.teams b{display:block;font-size:26px;color:var(--g)}
 .bal{text-align:center;border:2px solid;border-radius:8px;padding:4px 20px;margin:8px auto;width:max-content;font-weight:bold;font-size:20px}.bal small{display:block;font:italic 12px Georgia}
 #hint{text-align:center;color:var(--g);font-weight:bold;margin:6px 0}
@@ -52,8 +61,6 @@ table.sc tr.tot small{color:#bfe3d3}
 table.sc tr.live td{background:#fff8e6;border-top:2px dashed #e0a020}
 table.sc tr.live td:first-child{background:#ffefc4}
 table.sc tr.live b{color:#b35a00}
-.lgd{text-align:center;font-size:12px;color:#5c6b64;margin:2px 0 6px}
-.dot{display:inline-block;width:11px;height:11px;border-radius:3px;margin:0 4px 0 10px;vertical-align:-1px}.dot.g{background:#bfe6cf}.dot.r{background:#f6c6bd}
 </style></head><body>
 <header class="top"><span class="ttl">♠ ♥ JOKER ♦ ♣</span><button id="mb" class="mb" onclick="tog(event)" aria-label="Menu">☰</button><nav id="mn" hidden><button onclick="menu('stats')">📊 Statistics</button><button onclick="menu('new')">➕ New game</button></nav></header><div id="app"></div><div id="ov" hidden></div>
 <script>
@@ -74,29 +81,33 @@ function tableHTML(rows,N,T){
  const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>Team ${p%2+1}</small>`:''}</th>`).join('')+(T?'<th>Team 1</th><th>Team 2</th>':'');
  const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">TOTAL</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map(x=>td(r,x)).join('')}${T?`<td class="tm">${r.t[0]}</td><td class="tm">${r.t[1]}</td>`:''}</tr>`).join('');
  return`<table class="sc"><thead><tr><th>Cards</th>${head}</tr></thead><tbody>${body}</tbody></table>`}
-function adj(ps,hs,aff){const pr=[0,1,2,3].filter(p=>hs[p].length&&hs[p].every(x=>x)),a=[0,0,0,0];
+function adj(ps,hs,aff,tm){const pr=[0,1,2,3].filter(p=>hs[p].length&&hs[p].every(x=>x)),a=[0,0,0,0];
  pr.forEach(p=>a[p]=Math.max(...ps[p]));
- if(pr.length==1)for(let p=0;p<4;p++)if(p!=pr[0]){let c=Math.max(...ps[p]);if(aff)c+=ps[p][ps[p].length-1];a[p]=-c}return a}
+ if(pr.length==1)for(let p=0;p<4;p++)if(p!=pr[0]&&!(tm&&p%2==pr[0]%2)){let c=Math.max(...ps[p]);if(aff)c+=ps[p][ps[p].length-1];a[p]=-c}return a}
 let S=null,G=JSON.parse(localStorage.getItem('joker_games')||'[]');
 const keep=()=>localStorage.setItem('joker_state',JSON.stringify(S));
 try{S=JSON.parse(localStorage.getItem('joker_state'))}catch(e){}
+function box(msg,yes,no){return new Promise(res=>{const ov=$('#ov');ov.hidden=false;
+ ov.innerHTML=`<div class="dlg"><div style="white-space:pre-line;margin:6px 0 14px;font-size:16px">${esc(msg)}</div><div class="row"><button class="b" id="by">${yes||'OK'}</button>${no?`<button class="b gh" id="bn">${no}</button>`:''}</div></div>`;
+ const c=v=>{ov.hidden=true;ov.innerHTML='';res(v)};$('#by').onclick=()=>c(true);if(no)$('#bn').onclick=()=>c(false)})}
+async function delAll(){if(await box('Delete ALL saved games?','Delete','Cancel')){G=[];localStorage.removeItem('joker_games');stats()}}
 function setup(){S=null;$('#app').innerHTML=`<div class="card"><h2>Game rules</h2>
 <label>Game type</label><select id="ty"><option>Individual</option><option>Teams</option></select>
 <div class="mut" style="font-size:12px">Teams: Player 1 &amp; 3 vs Player 2 &amp; 4</div>
 <label>Last score rule</label><select id="af"><option value="1">Affected</option><option value="0">Not affected</option></select>
-<label>Penalty score</label><input id="pe" type="number" value="0" min="0" step="10">
+<label>Penalty score</label><select id="pm" onchange="$('#pe').disabled=this.value=='c'"><option value="f">Fixed penalty (number below)</option><option value="c">100 × cards dealt (round 1 = 100, round 2 = 200 …)</option></select><input id="pe" type="number" value="0" min="0" step="10" style="margin-top:6px">
 <label>Players</label>${[1,2,3,4].map(i=>`<input class="nm" placeholder="Player ${i}" style="margin:3px 0">`).join('')}
 <button class="b wide" onclick="start()">Start game</button></div>`}
 function start(){const n=[...document.querySelectorAll('.nm')].map(i=>i.value.trim());
- if(n.includes(''))return alert('Please enter all 4 player names.');
- if(new Set(n.map(x=>x.toLowerCase())).size<4)return alert('Each player needs a different name.');
- S={cfg:{team:$('#ty').value=='Teams',aff:$('#af').value=='1',pen:+$('#pe').value||0,names:n},results:[],bids:[null,null,null,null],took:[null,null,null,null],log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
+ if(n.includes(''))return box('Please enter all 4 player names.');
+ if(new Set(n.map(x=>x.toLowerCase())).size<4)return box('Each player needs a different name.');
+ S={cfg:{team:$('#ty').value=='Teams',aff:$('#af').value=='1',pen:+$('#pe').value||0,penCards:$('#pm').value=='c',names:n},results:[],bids:[null,null,null,null],took:[null,null,null,null],log:[],id:Date.now(),date:new Date().toISOString().slice(0,16).replace('T',' ')};
  keep();render();setTimeout(go,300)}
 function calc(){const rows=[],tot=[0,0,0,0];let ps=[[],[],[],[]],hs=[[],[],[],[]];
  S.results.forEach((r,i)=>{const I=R[i],cells=[];
   for(let p=0;p<4;p++){ps[p].push(r.scores[p]);hs[p].push(r.bids[p]==r.took[p]);tot[p]+=r.scores[p];cells.push({b:r.bids[p],t:r.took[p],s:r.scores[p]})}
   rows.push({k:'r',c:I.cards,cells,t:team(r.scores)});
-  if(I.last){const a=adj(ps,hs,S.cfg.aff),pt=[],cs=[];
+  if(I.last){const a=adj(ps,hs,S.cfg.aff,S.cfg.team),pt=[],cs=[];
    for(let p=0;p<4;p++){tot[p]+=a[p];const v=sum(ps[p])+a[p];pt.push(v);cs.push({v:fmt(v),a:a[p]})}
    rows.push({k:'t',c:'TOTAL',sub:'Part '+(I.part+1),cells:cs,t:team(pt).map(fmt)});ps=[[],[],[],[]];hs=[[],[],[],[]]}});
  return{rows,tot}}
@@ -105,17 +116,15 @@ function nextStep(){const o=order(S.results.length);for(const p of o)if(S.bids[p
 function render(){const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=24,{rows,tot}=calc();
  if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:[0,1,2,3].map(p=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
  const part=R[Math.min(k,23)].part,tt=team(tot);
- let h=`<h2>${done?'Game over':`Part ${R[k].part+1} • Round ${R[k].n} of 24 • ${R[k].cards} cards`}</h2>
-<div class="lgd"><span class="dot g"></span>bid made<span class="dot r"></span>bid missed &nbsp;•&nbsp; score on top, bid / taken below</div>
-<div class="tw">${tableHTML(rows,N,T)}</div>`;
- if(T)h+=`<div class="teams" style="margin-top:8px">${[0,1].map(t=>`<div>TEAM ${t+1}<br>${esc(N[t])} &amp; ${esc(N[t+2])}<b style="${tt[t]==Math.max(...tt)?'':'color:#1a1a1a'}">${fmt(tt[t])}</b></div>`).join('')}</div>`;
- h+='<div class="boxes">'+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
-  const st=m.includes('x')?['premia lost','#c0392b']:!m.includes('h')?['premia open','#5c6b64']:m.includes('o')?['★ ON PREMIA','#0b6b4f']:['★ PREMIA WON','#0b6b4f'];
-  return`<div class="box ${st[1]=='#0b6b4f'?'on':''}">${esc(n)}<b>${fmt(tot[p])}</b><span class="mut">${m.map(x=>({h:'●',x:'✗',o:'○'}[x])).join(' ')}</span><br><span style="color:${st[1]};font-weight:bold">${st[0]}</span></div>`}).join('')+'</div>';
- const st=done?null:nextStep();
+ const hd=`<h2>${done?'Game over':`${esc(N[order(k)[3]])} deals ${R[k].cards} ${R[k].cards==1?'card':'cards'}`}</h2>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
+ if(T)tm=`<div class="teams" style="margin-top:8px">${[0,1].map(t=>`<div>TEAM ${t+1}<br>${esc(N[t])} &amp; ${esc(N[t+2])}<b style="${tt[t]==Math.max(...tt)?'':'color:#1a1a1a'}">${fmt(tt[t])}</b></div>`).join('')}</div>`;
+ const bx='<div class="boxes">'+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
+  const st=m.includes('x')?['premia lost','lost']:!m.includes('h')?['premia open','open']:m.includes('o')?['★ ON PREMIA','on']:['★ PREMIA WON','on'];
+  return`<div class="box ${st[1]}"><div class="bn">${esc(n)}</div><b>${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div><span class="st">${st[0]}</span></div>`}).join('')+'</div>';
+ const st=done?null:nextStep();let bal='';
  if(st&&S.bids.every(b=>b!=null)){const t=balText(sum(S.bids),R[k].cards);if(t){const n=+t.split(' ')[1],over=t[0]=='O',c=over?'#c0392b':'#1565c0',w=n==1?'card':'cards';
-  h+=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}<small>${n} ${w} ${over?'will be cut from someone':n==1?'goes with someone':'go with someone'}</small></div>`}}
- h+=`<div id="hint">${done?'':st[0]=='bid'?'Next to bid: '+esc(N[st[1]]):sum(S.took)==0?'All bids are in. Play the round, then enter taken.':'Taken: '+sum(S.took)+' of '+R[k].cards}</div>
+  bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}<small>${n} ${w} ${over?'will be cut from someone':n==1?'goes with someone':'go with someone'}</small></div>`}}
+ let h=hd+bx+bal+tbl+tm+`<div id="hint">${done?'':st[0]=='bid'?'Next to bid: '+esc(N[st[1]]):sum(S.took)==0?'All bids are in. Play the round, then enter taken.':'Taken: '+sum(S.took)+' of '+R[k].cards}</div>
 <div class="row"><button class="b gh" onclick="undo()">↶ Undo</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?'Game finished':st[0]=='bid'?'Enter bid: '+esc(N[st[1]]):'Enter taken: '+esc(N[st[1]])}</button></div>`;
  $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
 function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
@@ -141,12 +150,12 @@ function autofill(){const c=R[S.results.length].cards,e=order(S.results.length).
  if(sum(S.took)==c)e.forEach(p=>{S.took[p]=0;S.log.push(['took',p,1])});
  else if(e.length==1){S.took[e[0]]=c-sum(S.took);S.log.push(['took',e[0],1])}}
 function finish(){const I=R[S.results.length];
- S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.pen)),log:[...S.log]});
+ S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.penCards?100*I.cards:S.cfg.pen)),log:[...S.log]});
  S.bids=[null,null,null,null];S.took=[null,null,null,null];S.log=[];keep();render();
  if(S.results.length==24){save(true);const{tot}=calc(),N=S.cfg.names;let m;
   if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?`Tie! Both teams ${fmt(b)}`:`Winner: ${w[0]} with ${fmt(b)}`}
   else{const b=Math.max(...tot);m=`Winner: ${N.filter((n,i)=>tot[i]==b).join(', ')} with ${fmt(b)}`}
-  setTimeout(()=>alert(m+'\n\nSaved in Statistics.'),100)}else setTimeout(go,300)}
+  setTimeout(()=>box(m+'\n\nSaved in Statistics.'),100)}else setTimeout(go,300)}
 function undo(){if(!S)return;if(!S.log.length&&S.results.length){const r=S.results.pop();S.bids=[...r.bids];S.took=[...r.took];S.log=[...r.log]}
  while(S.log.length){const[k,p,a]=S.log.pop();S[k=='bid'?'bids':'took'][p]=null;if(!a)break}keep();render()}
 function save(fin){const{tot}=calc(),N=S.cfg.names,t=team(tot),b=Math.max(...(S.cfg.team?t:tot));
@@ -168,12 +177,12 @@ function stats(){const P={};G.filter(g=>g.fin).forEach(g=>g.names.forEach((n,p)=
  <div class="tw" style="margin-top:8px"><table><tr><th>Player</th><th>Games</th><th>Wins</th><th>Avg total</th><th>Bid hit %</th></tr>
  ${L.map(o=>`<tr><td>${esc(o.n)}</td><td>${o.g}</td><td>${o.w}</td><td>${(o.s/o.g).toFixed(2)}</td><td>${o.r?Math.round(100*o.h/o.r):0}%</td></tr>`).join('')||'<tr><td colspan="5">No finished games yet</td></tr>'}</table></div>
  <button class="b wide" onclick="exportRounds()">Download rounds CSV</button><button class="b wide" onclick="exportGames()">Download games CSV</button>
- <button class="b gh wide" onclick="if(confirm('Delete ALL saved games?')){G=[];localStorage.removeItem('joker_games');stats()}">Delete all saved games</button>
+ <button class="b gh wide" onclick="delAll()">Delete all saved games</button>
  <button class="b gh wide" onclick="S?render():setup()">← Back</button></div>`}
 function tog(e){e.stopPropagation();$('#mn').hidden=!$('#mn').hidden}
 document.addEventListener('click',()=>{$('#mn').hidden=true});
 document.addEventListener('keydown',e=>{if(e.key=='Escape')$('#mn').hidden=true});
 function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else newGame()}
-function newGame(){if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!confirm('Start a new game? The current unfinished game will be lost.'))return;localStorage.removeItem('joker_state');setup()}
+async function newGame(){if(S&&S.results.length<24&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box('Start a new game?\nThe current unfinished game will be lost.','Start new','Cancel')))return;localStorage.removeItem('joker_state');setup()}
 S&&S.cfg?(render(),setTimeout(go,300)):setup();
 </script></body></html>
