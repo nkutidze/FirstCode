@@ -37,7 +37,7 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 .deal b{display:block;font-size:19px;line-height:1.2}.deal small{display:block;font-size:13px;opacity:.92;margin-top:2px}
 .dealrow .bal{margin:0;border-radius:14px;display:flex;align-items:center;padding:6px 22px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
 .bal{text-align:center;border:2px solid;border-radius:8px;padding:4px 20px;margin:8px auto;width:max-content;font-weight:bold;font-size:20px}.bal small{display:block;font:italic 12px Georgia}
-#hint{text-align:center;color:var(--g);font-weight:bold;margin:6px 0}
+#hint{text-align:center;color:var(--g);font-weight:bold;font-size:13px;margin:6px 0}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9}
 #ov[hidden]{display:none}
 .dlg{background:#fff;border-radius:12px;padding:16px;width:min(94vw,420px);text-align:center}.dlg h3{margin:0;color:var(--g);font-size:20px}.dlg.warn{box-shadow:0 0 0 3px #f2d479}.dlg.bad{background:#fdecea;box-shadow:0 0 0 3px var(--r)}.dlg.bad h3{color:var(--r)}.fi{margin-top:8px;font-weight:bold;font-size:16px;color:var(--g)}.fi.warn{color:#8a5a00}.fi.bad{color:var(--r);font-size:22px}@keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .24s ease-out}.dlg h3{animation:nameIn .3s ease-out .06s both}@media (prefers-reduced-motion:reduce){.dlg,.dlg h3{animation:none}}
@@ -89,7 +89,7 @@ const KA={'Statistics':'სტატისტიკა','New game':'ახალ
 'Delete ALL saved games?':'ყველა შენახული თამაშის წაშლა?','Delete':'წაშლა','Start a new game?\nThe current unfinished game will be lost.':'დავიწყოთ ახალი თამაში?\nმიმდინარე დაუსრულებელი თამაში დაიკარგება.','Start new':'დაწყება',
 'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
-'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'შეგივსეს','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი'};
+'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'შეგივსეს','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
 const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
 function setLang(){if(VIEW==='setup'&&$('#ty'))SV={nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pe:$('#pe').value};
@@ -114,7 +114,10 @@ function tableHTML(rows,N,T){
  return`<table class="sc"><thead><tr><th>${tr('Round')}</th>${head}</tr></thead><tbody>${body}</tbody></table>`}
 function adj(ps,hs,aff,tm){const pr=[0,1,2,3].filter(p=>hs[p].length&&hs[p].every(x=>x)),a=[0,0,0,0];
  pr.forEach(p=>a[p]=Math.max(...ps[p]));
- if(pr.length==1)for(let p=0;p<4;p++)if(p!=pr[0]&&!(tm&&p%2==pr[0]%2)){let c=Math.max(...ps[p]);if(aff)c+=ps[p][ps[p].length-1];a[p]=-c}return a}
+ const cut=p=>{const c=aff?ps[p]:ps[p].slice(0,-1);return Math.max(...(c.length?c:ps[p]))};
+ if(tm){const ts=new Set(pr.map(p=>p%2));if(ts.size==1){const w=[...ts][0];for(let p=0;p<4;p++)if(p%2!=w)a[p]=-cut(p)}}
+ else if(pr.length==1)for(let p=0;p<4;p++)if(p!=pr[0])a[p]=-cut(p);
+ return a}
 let S=null,G=JSON.parse(localStorage.getItem('joker_games')||'[]');
 const keep=()=>localStorage.setItem('joker_state',JSON.stringify(S));
 try{S=JSON.parse(localStorage.getItem('joker_state'))}catch(e){}
@@ -155,7 +158,7 @@ function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.lengt
  if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:[0,1,2,3].map(p=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
  const part=R[Math.min(k,23)].part,tt=team(tot);
  const rk=tot.map(v=>1+tot.filter(x=>x>v).length),mn=Math.min(...tot),same=tot.every(v=>v==tot[0]);
- const rb=p=>{if(!k||same||T)return'';const last=tot[p]==mn,r=rk[p],top=Math.max(...tot);return (last?`<span class="rp rl">🔻 ${tr('Last place')}</span>`:`<span class="rp r${r}">${['🥇','🥈','🥉'][r-1]} ${tr(['1st','2nd','3rd'][r-1])} ${tr('place')}</span>`)};
+ const rb=p=>{if(!k||same||T)return'';const last=tot[p]==mn,r=rk[p],top=Math.max(...tot);return (last?`<span class="rp rl">🔻</span>`:`<span class="rp r${r}">${['🥇','🥈','🥉'][r-1]}</span>`)};
  const gc=p=>(!k||same||rk[p]==1)?'<div></div>':`<div class="gcard">${tr('To 1st: {0}','<b>'+fmt(Math.max(...tot)-tot[p])+'</b>')}</div>`,gcs=T?'':N.map((n,p)=>gc(p)).join('');
  const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[k%4])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
  if(T){const mx=Math.max(...tt);tm=`<div class="teams">${[0,1].map(t=>`<div class="tc"><span class="tn">${tr('TEAM')} ${t+1} · ${esc(N[t])} &amp; ${esc(N[t+2])}</span><b style="${tt[t]==mx?'':'color:#1a1a1a'}">${fmt(tt[t])}</b>${tt[t]<mx?`<span class="tg">${tr('To 1st: {0}','<b>'+fmt(mx-tt[t])+'</b>')}</span>`:''}</div>`).join('')}</div>`}
@@ -165,7 +168,7 @@ function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.lengt
  const st=done?null:nextStep();let bal='';
  if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'#c0392b':'#1565c0';
   bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}</div>`}}
- let h=tm+bx+`<div class="dealrow">${hd}${bal}</div>`+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
+ let h=tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`<div id="hint">${done?'':st[0]=='bid'?tr('Next to bid: {0}',esc(N[st[1]])):sum(S.took)==0?tr('All bids are in. Play the round, then enter taken.'):tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>
 <div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`;
  $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
 function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
@@ -185,7 +188,14 @@ function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=
  const key=e=>{if(e.key=='Escape')close(null);else if(/^\d$/.test(e.key)&&+e.key<=c&&!dis.has(+e.key))close(+e.key)};
  document.addEventListener('keydown',key);
  ov.querySelectorAll('button').forEach(b=>b.onclick=()=>b.dataset.v=='x'?close(null):close(+b.dataset.v))})}
+let DEALSHOWN=-1;
+function dealPopup(k){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,c=R[k].cards;ov.hidden=false;
+ ov.innerHTML=`<div class="dlg"><div class="mut" style="font-weight:bold;margin-bottom:8px">${tr('Round')} ${R[k].n}</div><div class="deal" style="margin:0 0 14px"><span class="ic">🃏</span><div style="text-align:left"><b>${esc(N[k%4])}</b><small>${tr(c==1?'deals {0} card':'deals {0} cards',c)}</small></div></div><button class="b wide" id="dc">${tr('Close')}</button></div>`;
+ const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
+ const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
+ document.addEventListener('keydown',key);$('#dc').onclick=close})}
 async function go(){if(!S||S.results.length>=24||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
+ if(ph=='bid'&&S.bids.every(b=>b==null)&&DEALSHOWN!=S.results.length){DEALSHOWN=S.results.length;await dealPopup(S.results.length)}
  while(st&&st[0]==ph){const[k,p]=st,v=await ask(k,p);if(v==null)break;
   if(k=='bid'){S.bids[p]=v;S.log.push(['bid',p,0])}else{S.took[p]=v;S.log.push(['took',p,0]);autofill()}
   if(!S.took.includes(null)){finish();return}keep();render();st=nextStep()}}
