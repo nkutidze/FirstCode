@@ -10,20 +10,20 @@ h1{color:var(--g);text-align:center;margin:6px 0;font-size:26px}h2{color:var(--g
 label{display:block;margin:8px 0 3px;font-weight:bold;color:var(--g)}input,select{width:100%;padding:10px;font:inherit;border:1px solid var(--d);border-radius:8px}
 .b{background:var(--g);color:#fff;border:2px solid var(--g);border-radius:8px;padding:10px 16px;font:bold 15px Georgia,serif;cursor:pointer}
 .b:hover{background:var(--g2)}.b.gh{background:#fff;color:var(--g)}.b:disabled{background:#e3e8e5;color:#9aa7a0;border-color:#e3e8e5;cursor:default}.b.sec:not(:disabled){background:#f3f4f4;color:#333;border-color:#d4d8d6}.b.sec:not(:disabled):hover{background:#e6e9e8}
-.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.wide{width:100%;margin-top:8px}
+.row{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:8px 0}.bar{position:fixed;left:0;right:0;bottom:0;z-index:5;margin:0;flex-wrap:nowrap;padding:14px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(rgba(255,255,255,0),#fff 38%)}.bar .b{box-shadow:0 2px 8px rgba(0,0,0,.12)}#app:has(.bar){padding-bottom:84px}.wide{width:100%;margin-top:8px}
 .tw{overflow:auto;border:1px solid var(--d);border-radius:14px;max-height:46vh;background:#fff;box-shadow:0 3px 12px rgba(11,107,79,.15)}
 table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;text-align:center}th{background:linear-gradient(135deg,var(--g),var(--g2));color:#fff;padding:9px 4px;position:sticky;top:0;z-index:2}
 td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 .boxes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:8px 0}
 .box{position:relative;background:#fff;border:1px solid var(--d);border-radius:14px;text-align:center;padding:7px 6px 0;font-size:12px;min-width:0;overflow:hidden;display:flex;flex-direction:column}
 .box.r1{border-color:#e6c65c;background:#fffbf0}
-.box.turn{outline:2px solid #e0a020;outline-offset:-1px}
+
 .box .bn{font-size:12.5px;font-weight:bold;color:#33433c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px}
 .box .bn .star{color:#d4a017;margin-right:2px}
 .box>b{display:block;font-size:23px;color:var(--g);margin:2px 0 6px;line-height:1.1}.box>b.neg{color:#b23a2c}
 .pips{display:flex;gap:2px;min-height:5px;margin:0 2px 7px}
 .pips i{flex:1;height:5px;border-radius:3px;background:#e1e9e5}
-.pips i.h{background:var(--g)}.pips i.x{background:#e58c80}
+.pips i.h{background:var(--g)}.lit{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--g);margin-right:5px;vertical-align:1px}.pips i.x{background:#e58c80}
 .st{display:inline-block;font-size:9.5px;font-weight:bold;padding:2px 6px;border-radius:10px;letter-spacing:.2px;white-space:nowrap}
 .box.on .st{background:#0b6b4f;color:#fff}
 .box.lost .st{background:#fdecea;color:#b23a2c}
@@ -32,7 +32,7 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 .rk{display:flex;justify-content:space-between;align-items:center;min-height:22px;margin-bottom:2px}
 .rkb{width:22px;height:22px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:bold;background:#eef2f0;color:#5c6b64}
 .rkb.r1{background:#ecc94b;color:#3a2f00}.rkb.r2{background:#d3dad7;color:#33433c}.rkb.r3{background:#dcae84;color:#3d2610}.rkb.rl{background:#fdecea;color:#b23a2c}
-.dl{margin-left:auto;font-size:15px;line-height:1}
+.dl{margin-left:auto;font-size:15px;line-height:1}.box>.dl{position:absolute;top:4px;right:5px;margin:0;font-size:13px;line-height:1}.dd{display:inline-block;font-size:11px;font-weight:bold;color:#0b6b4f;line-height:1.2}.dd .dj{font-size:13px}.dd b{font-size:12px}table.sc td b.lv{font-weight:normal;color:#5c6b64;font-size:14px}
 .gi{margin:auto -6px 0;padding:4px 2px 5px;border-top:1px solid #e6eeea;background:#f6f9f7;font-size:9.5px;font-weight:bold;color:#8a9893;line-height:1.25}.gi span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gi b{font-size:12px;color:#33433c}
 .gi.lead{background:#fdf3d0;color:#8a6a00;border-top-color:#f0dc9a;font-size:11px;padding:6px 2px}.gcard{margin-top:-2px;background:#f1f5f3;border:1px solid var(--d);border-radius:12px;text-align:center;padding:6px 3px;font-size:11px;font-weight:bold;color:#0b6b4f;line-height:1.25}.gcard b{font-size:14px}.rp{display:inline-block;padding:1px 2px;font-size:10.5px;font-weight:bold;white-space:nowrap}
 .rp.r1{color:#0b6b4f}.rp.r2{color:#0b6b4f}.rp.r3{color:#5c6b64}.rp.rl{color:#b23a2c}
@@ -59,7 +59,7 @@ td{padding:7px 4px;white-space:nowrap;border-bottom:1px solid #e6eeea}
 .deal .ic{font-size:30px;line-height:1;background:rgba(255,255,255,.7);border-radius:50%;width:46px;height:46px;display:flex;align-items:center;justify-content:center}
 .deal b{display:block;font-size:19px;line-height:1.2}.deal small{display:block;font-size:13px;opacity:.92;margin-top:2px}
 .dealrow .bal{margin:0;border-radius:14px;display:flex;align-items:center;padding:6px 22px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
-.bal{text-align:center;border:2px solid;border-radius:8px;padding:4px 20px;margin:8px auto;width:max-content;font-weight:bold;font-size:20px}.bal small{display:block;font:italic 12px Georgia}
+.bal{text-align:center;border:2px solid;border-radius:8px;padding:4px 20px;margin:8px auto;width:max-content;font-weight:bold;font-size:20px}.bal small{display:block;font:italic 12px Georgia}.bal .bi{display:inline-block;margin-right:9px}
 #hint{text-align:center;color:var(--g);font-weight:bold;font-size:13px;margin:6px 0}
 #ov{position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:9}
 #ov[hidden]{display:none}
@@ -141,7 +141,7 @@ const KA={'Statistics':'სტატისტიკა','New game':'ახალ
 'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
 'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.','Please enter the penalty.':'გთხოვთ, ჩაწერეთ ხიშტის რაოდენობა.',
-'Category':'კატეგორია','Standard':'სტანდარტული','Nines':'ცხრიანები','Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
+'Category':'კატეგორია','Fix this round?':'ჩავასწორო?\nამ რაუნდის ყველა მონაცემი გასუფთავდება და თავიდან შეიყვანთ.','Fix':'ჩასწორება','Standard':'სტანდარტული','Nines':'ცხრიანები','Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
 'Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'ნელა, მაგრამ დარწმუნებით'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
 const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('share')">📡 ${tr('Share game')}</button><button onclick="menu('join')">👁 ${tr('Enter code')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
@@ -159,11 +159,11 @@ const score=(b,t,c,pen)=>b>0&&t==0?-pen:b!=t?t*10:b==0?50:b==c?c*100:100+(b-1)*5
 const balText=(a,c)=>a>c?tr('OVER')+' '+(a-c):a<c?tr('EXTRA')+' '+(c-a):'';
 const pill=a=>a>0?`<i class="pl up">★ +${fmt(a)}</i>`:a<0?`<i class="pl dn">✂ ${fmt(a)}</i>`:'';
 const td=(r,x,j)=>r.k=='t'?`<td><b>${x.v}</b>${pill(x.a)}</td>`
- :r.k=='l'?`<td><b>${x.b==null?'·':bl(x.b)}</b><small>${x.t==null?tr('taken')+' …':tr('taken')+' '+x.t}</small></td>`
- :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':x.b>0&&x.t==0?'pen':'miss'}"${WATCH?'':` onclick="editCell(${r.i},${j})"`}><div class="cl"><span class="bs">${bl(x.b)}</span><b>${x.s}</b></div></td>`;
+ :r.k=='l'?`<td><div class="cl"><span class="bs">${x.b==null?'·':bl(x.b)}</span><b class="lv">${x.t==null?'':x.t}</b></div></td>`
+ :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':x.b>0&&x.t==0?'pen':'miss'}"${WATCH?'':` onclick="redoRound(${r.i})"`}><div class="cl"><span class="bs">${bl(x.b)}</span><b>${x.s}</b></div></td>`;
 function tableHTML(rows,N,T){
  const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span>${T?`<small>${tr('Team')} ${p%2+1}</small>`:''}</th>`).join('')+'';
- const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
+ const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:r.k=='l'?`<span class="dd"><span class="dj">🃏</span> ${esc(r.d)} <b>${r.c}</b></span>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
  return`<table class="sc"><thead><tr><th>${tr('Deal')}</th>${head}</tr></thead><tbody>${body}</tbody></table>`}
 function adj(ps,hs,aff,tm){const n=ps.length,pr=[...Array(n).keys()].filter(p=>hs[p].length&&hs[p].every(x=>x)),a=Array(n).fill(0);
  pr.forEach(p=>a[p]=Math.max(...ps[p]));
@@ -195,7 +195,7 @@ function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><div
 <div class="sec"><label>⚠ ${tr('Penalty score')}</label><input type="hidden" id="pm" value="f"><input type="hidden" id="pv" value=""><div class="seg wrap" id="pbs">${[200,300,400].map(v=>`<button type="button" data-v="${v}" class="" onclick="penPick('f',${v})">${v}</button>`).join('')}<button type="button" data-v="c" onclick="penPick('c')">${tr('100 × cards dealt')}</button></div>
 <input id="pe" type="number" value="" min="0" step="10" placeholder="${tr('Other number')}" oninput="penType()" style="margin-top:8px"></div></div>
 <div class="card setup"><div class="sec"><label>🃏 ${tr('Players')}</label><div class="plist">${[1,2,3,4].map(i=>`<div class="pr"><span class="pnum">${i}</span><input class="nm" placeholder="${tr('Player')} ${i}"></div>`).join('')}</div></div></div>
-<button class="b start" onclick="start()">▶ ${tr('Start game')}</button>`;
+<button class="b start" onclick="start()">${tr('Start game')}</button>`;
  if(SV){pick('pc',SV.pc||'4');document.querySelectorAll('.nm').forEach((e,i)=>e.value=SV.nm[i]||'');pick('ty',SV.ty);pick('md',SV.md||'std');pick('af',SV.af);$('#pm').value=SV.pm;$('#pv').value=SV.pv;$('#pe').value=SV.pe;penShow();SV=null}}
 function start(){const n=[...document.querySelectorAll('.nm')].slice(0,+$('#pc').value).map(i=>i.value.trim());
  if(n.includes(''))return box(tr('Please enter all player names.'));
@@ -214,25 +214,32 @@ function calc(){const n=S.cfg.names.length,rows=[],tot=Array(n).fill(0),mk=()=>A
 function nextStep(){const o=order(S.results.length);for(const p of o)if(S.bids[p]==null)return['bid',p];
  for(const p of o)if(S.took[p]==null)return['took',p];return null}
 function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.length,done=k>=TOTAL,{rows,tot}=calc();
- if(!done&&S.bids.some(b=>b!=null)){rows.push({k:'l',c:R[k].cards,cells:S.bids.map((_,p)=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
+ if(!done){rows.push({k:'l',c:R[k].cards,d:N[(k+N.length-1)%N.length],cells:S.bids.map((_,p)=>({b:S.bids[p],t:S.took[p]})),t:['','']})}
  const part=R[Math.min(k,TOTAL-1)].part,tt=team(tot);
+ const ord=[...N.keys()];if(!T)ord.sort((a,b)=>tot[b]-tot[a]||a-b);
  const rk=tot.map(v=>1+tot.filter(x=>x>v).length),mn=Math.min(...tot),same=tot.every(v=>v==tot[0]);
  const rc=p=>(!k||same||T)?'':rk[p]>1&&tot[p]==mn?'rl':'r'+rk[p];
- const rb=p=>rc(p)?`<span class="rkb ${rc(p)}">${rk[p]}</span>`:'';
+ const rb=p=>'';
  const gc=p=>(!k||same||T)?'':rk[p]==1?`<div class="gi lead">👑 ${tr('Leader')}</div>`:`<div class="gi"><span>${tr('To 1st')}</span><b>${fmt(Math.max(...tot)-tot[p])}</b></div>`;
  const cur=done?null:nextStep(),dlr=done?-1:(k+N.length-1)%N.length;
  const hd=`<div class="deal"><span class="ic">🃏</span><div>${done?`<b>${tr('Game over')}</b>`:`<b>${esc(N[(k+N.length-1)%N.length])}</b><small>${tr(R[k].cards==1?'deals {0} card':'deals {0} cards',R[k].cards)}</small>`}</div></div>`,tbl=`<div class="tw">${tableHTML(rows,N,T)}</div>`;let tm='';
  if(T){const mx=Math.max(...tt);tm=`<div class="teams">${[0,1].map(t=>`<div class="tc"><span class="tn">${tr('TEAM')} ${t+1} · ${esc(N[t])} &amp; ${esc(N[t+2])}</span><b style="${tt[t]==mx?'':'color:#1a1a1a'}">${fmt(tt[t])}</b>${tt[t]<mx?`<span class="tg">${tr('To 1st: {0}','<b>'+fmt(mx-tt[t])+'</b>')}</span>`:''}</div>`).join('')}</div>`}
- const bx=`<div class="boxes" style="grid-template-columns:repeat(${N.length},1fr)">`+N.map((n,p)=>{const m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
+ const bx=`<div class="boxes" style="grid-template-columns:repeat(${N.length},1fr)">`+ord.map(p=>{const n=N[p],m=[];R.forEach((I,i)=>{if(I.part==part)m.push(i>=k?'o':S.results[i].bids[p]==S.results[i].took[p]?'h':'x')});
   const st=m.includes('x')?[tr('premia lost'),'lost']:!m.includes('h')?[tr('premia open'),'open']:m.includes('o')?[tr('★ ON PREMIA'),'on']:[tr('★ PREMIA WON'),'on'];
-  return`<div class="box ${st[1]} ${rc(p)}${!WATCH&&cur&&cur[1]==p?' turn':''}"><div class="rk">${rb(p)}${p==dlr?`<span class="dl" title="${tr('Deal')}">🃏</span>`:''}</div><div class="bn">${st[1]=='on'?'<span class="star">★</span>':''}${esc(n)}</div><b class="${tot[p]<0?'neg':''}">${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div>${gc(p)}</div>`}).join('')+'</div>';
- const st=done?null:nextStep();let bal='';
+  return`<div class="box ${st[1]} ${rc(p)}${!WATCH&&cur&&cur[1]==p?' turn':''}" data-p="${p}">${p==dlr?`<span class="dl" title="${tr('Deal')}">🃏</span>`:''}<div class="bn">${st[1]=='on'?'<span class="star">★</span>':''}${esc(n)}</div><b class="${tot[p]<0?'neg':''}">${fmt(tot[p])}</b><div class="pips">${m.map(x=>`<i class="${x}"></i>`).join('')}</div>${gc(p)}</div>`}).join('')+'</div>';
+ const st=done?null:nextStep();let bal='',popKey='';
  if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'#c0392b':'#1565c0';
-  bal=`<div class="bal" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}">${t}</div>`}}
+  const key=k+(over?'o':'e')+d,pop=BALSEEN!==key;popKey=key;bal=`<div class="bal ${over?'ov':'ex'}${pop?' pop':''}" style="color:${c};background:${over?'#fdecea':'#e8f1fb'};border-color:${c}"><span class="bi">${over?'✂️':'🍔'}</span> ${t}</div>`}}BALSEEN=popKey;
  let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`${!done&&st[0]!='bid'&&sum(S.took)>0?`<div id="hint">${tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>`:''}
-${WATCH?'':`<div class="row"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`}`;
- $('#app').innerHTML=h;const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
-function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
+${WATCH?'':`<div class="row bar"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`}`;
+ const old={};document.querySelectorAll('#app .box[data-p]').forEach(e=>old[e.dataset.p]=e.getBoundingClientRect());
+ $('#app').innerHTML=h;
+ document.querySelectorAll('#app .box[data-p]').forEach(e=>{const o=old[e.dataset.p];if(!o)return;const n=e.getBoundingClientRect(),dx=o.left-n.left,dy=o.top-n.top;if(Math.abs(dx)<1&&Math.abs(dy)<1)return;
+  e.style.transition='none';e.style.transform=`translate(${dx}px,${dy}px)`;e.style.zIndex=3;e.getBoundingClientRect();
+  e.style.transition='transform .6s cubic-bezier(.22,.8,.3,1)';e.style.transform='';setTimeout(()=>{e.style.transition='';e.style.zIndex=''},700)});
+ const w=$('.tw');if(w)w.scrollTop=w.scrollHeight}
+let RK=null;
+function ask(kind,p){return new Promise(res=>{const k=RK!=null?RK:S.results.length,I=R[k],c=I.cards,o=order(k),N=S.cfg.names,dis=new Set();
  let note='',sub,extra='',fi='',cls='',fill=-1;
  if(kind=='bid'){if(p==o[o.length-1]){const b=c-sum(o.slice(0,-1).map(q=>S.bids[q]));if(b>=0&&b<=c){dis.add(b)}}
   sub='';
@@ -241,6 +248,7 @@ function ask(kind,p){return new Promise(res=>{const k=S.results.length,I=R[k],c=
  else{const rem=c-sum(S.took);for(let n=rem+1;n<=c;n++)dis.add(n);const bal=balText(sum(S.bids),c),b=S.bids[p];
   sub='';
   extra=`<button class="b" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ ${bl(b)}</button>`}
+ if(RK!=null)sub='✎ '+tr('Deal')+' '+I.n;
  const ov=$('#ov');ov.hidden=false;
  ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(kind=='bid'||LANG!=='ka'?N[p]:N[p]+(/[აეიოუ]$/.test(N[p])?'მ':'მა'))}${kind=='bid'?' '+tr('says'):LANG==='ka'?' წაიღო':' – '+tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
  <div class="grid">${Array.from({length:c+1},(_,n)=>kind=='took'&&n==S.bids[p]?extra:`<button class="b${kind=='took'?' sec':''}${n==fill?' fill':''}" data-v="${n}" ${dis.has(n)?'disabled':''}>${bl(n)}</button>`).join('')}</div>
@@ -264,29 +272,37 @@ function partPopup(pt){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,
  const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
  const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
  document.addEventListener('keydown',key);$('#pc2').onclick=close})}
-let DEALSHOWN=-1;
+let DEALSHOWN=-1,BALSEEN='';
 function dealPopup(k){return new Promise(res=>{const ov=$('#ov'),N=S.cfg.names,c=R[k].cards;ov.hidden=false;
  ov.innerHTML=`<div class="dlg"><div class="mut" style="font-weight:bold;margin-bottom:8px">${tr('Deal')} ${R[k].n}</div><div class="deal" style="margin:0 0 14px"><span class="ic">🃏</span><div style="text-align:left;font-size:17px;font-weight:bold">${esc(N[(k+N.length-1)%N.length])} ${tr(c==1?'deals {0} card':'deals {0} cards',c)}</div></div><button class="b wide" id="dc">${tr('Close')}</button></div>`;
  const close=()=>{document.removeEventListener('keydown',key);ov.hidden=true;ov.innerHTML='';res()};
  const key=e=>{if(e.key=='Escape'||e.key=='Enter')close()};
  document.addEventListener('keydown',key);$('#dc').onclick=close})}
 async function go(){if(WATCH||!S||S.results.length>=TOTAL||!$('#ov').hidden)return;let st=nextStep();if(!st)return;const ph=st[0];
- if(ph=='bid'&&S.bids.every(b=>b==null)&&DEALSHOWN!=S.results.length){DEALSHOWN=S.results.length;await dealPopup(S.results.length)}
  while(st&&st[0]==ph){const[k,p]=st,v=await ask(k,p);if(v==null)break;
   if(k=='bid'){S.bids[p]=v;S.log.push(['bid',p,0])}else{S.took[p]=v;S.log.push(['took',p,0]);autofill()}
   if(!S.took.includes(null)){finish();return}keep();render();st=nextStep()}}
-function autofill(){const c=R[S.results.length].cards,e=order(S.results.length).filter(p=>S.took[p]==null);if(!e.length)return;
+function autofill(){const kk=RK!=null?RK:S.results.length,c=R[kk].cards,e=order(kk).filter(p=>S.took[p]==null);if(!e.length)return;
  if(sum(S.took)==c)e.forEach(p=>{S.took[p]=0;S.log.push(['took',p,1])});
  else if(e.length==1){S.took[e[0]]=c-sum(S.took);S.log.push(['took',e[0],1])}}
 function finish(){const I=R[S.results.length];
  S.results.push({bids:[...S.bids],took:[...S.took],scores:S.bids.map((b,p)=>score(b,S.took[p],I.cards,S.cfg.penCards?100*I.cards:S.cfg.pen)),log:[...S.log]});
  S.bids=S.bids.map(()=>null);S.took=S.took.map(()=>null);S.log=[];keep();render();
  const done=S.results.length==TOTAL;if(done)save(true);
- const next=()=>{if(!done)return setTimeout(go,300);const{tot}=calc(),N=S.cfg.names;let m;
+ const next=()=>{if(!done)return;const{tot}=calc(),N=S.cfg.names;let m;
   if(S.cfg.team){const t=team(tot),b=Math.max(...t),w=[0,1].filter(i=>t[i]==b).map(i=>N[i]+' & '+N[i+2]);m=w.length==2?tr('Tie! Both teams {0}',fmt(b)):tr('Winner: {0} with {1}',w[0],fmt(b))}
   else{const b=Math.max(...tot);m=tr('Winner: {0} with {1}',N.filter((n,i)=>tot[i]==b).join(', '),fmt(b))}
   setTimeout(()=>box(m+'\n\n'+tr('Saved in Statistics.')),100)};
  I.last?setTimeout(()=>partPopup(I.part).then(next),250):next()}
+async function redoRound(i){const ov=$('#ov');if(WATCH||!ov.hidden||!S.results[i])return;
+ if(!(await box(tr('Fix this round?'),tr('Fix'),tr('Cancel'))))return;
+ const sb=S.bids,st=S.took,sl=S.log,c=R[i].cards,o=order(i);let ok=true;
+ S.bids=sb.map(()=>null);S.took=st.map(()=>null);S.log=[];RK=i;
+ try{for(const p of o){const v=await ask('bid',p);if(v==null){ok=false;break}S.bids[p]=v}
+  if(ok)for(const p of o){if(S.took[p]!=null)continue;const v=await ask('took',p);if(v==null){ok=false;break}S.took[p]=v;autofill()}
+  if(ok){const r=S.results[i],pen=S.cfg.penCards?100*c:S.cfg.pen,nb=[...S.bids],nt=[...S.took];r.bids=nb;r.took=nt;r.scores=nb.map((b,p)=>score(b,nt[p],c,pen))}
+ }finally{S.bids=sb;S.took=st;S.log=sl;RK=null}
+ if(ok){keep();if(S.results.length==TOTAL)save(true);render()}}
 function editCell(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
  const r=S.results[i],c=R[i].cards,N=S.cfg.names,pen=S.cfg.penCards?100*c:S.cfg.pen;let b=r.bids[p],t=r.took[p];
  const row=(k,v)=>`<div class="grid">${Array.from({length:c+1},(_,n)=>`<button class="b${n==v?'':' sec'}" data-k="${k}" data-v="${n}">${bl(n)}</button>`).join('')}</div>`;
