@@ -76,7 +76,7 @@ td{padding:8px 4px;white-space:nowrap;border-bottom:.5px solid var(--sep)}tr:las
 .b.fill:not(:disabled){outline:3px solid var(--y);outline-offset:2px}
 .watch{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--ybg);color:var(--yc);border-radius:14px;padding:8px 12px;margin:8px 0;font-size:14px}.watch button{border:0;background:var(--card);color:var(--yc);border-radius:10px;padding:6px 12px;font:600 14px var(--ff)}
 @keyframes dlgIn{from{opacity:0;transform:translateY(16px) scale(.96)}to{opacity:1;transform:none}}@keyframes nameIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}.dlg{animation:dlgIn .28s cubic-bezier(.2,.9,.3,1.1)}.dlg h3{animation:nameIn .3s ease-out .06s both}
-.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}.grid .b{font-size:19px;padding:0;height:56px;border-radius:14px}.note{color:var(--r);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 0}.grid .b{font-size:19px;padding:0;height:56px;border-radius:14px}.note{color:var(--r);font-weight:600}.grid .b.ok{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;font-size:15px;line-height:1.1;padding:0 2px;min-width:0}.grid .b.ok i{font-style:normal;font-size:17px}
 .dlg.ps{position:relative;overflow:hidden}.ps h3 .cd{display:inline-block;animation:wig 1s ease-in-out infinite alternate}@keyframes wig{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
 .ps-list{margin:14px 0 16px;text-align:left}
 .ps-row{display:flex;align-items:center;gap:10px;padding:10px 12px;margin:8px 0;border-radius:16px;background:var(--sub);opacity:0;animation:rowIn .5s cubic-bezier(.2,1.5,.4,1) var(--d) forwards}
@@ -244,7 +244,7 @@ function ask(kind,p){return new Promise(res=>{const k=RK!=null?RK:S.results.leng
   if(ix<o.length-1){if(rem>0)fill=rem;else{fi='⚠ '+tr('Filled');cls=' warn';fill=0}}else if(rem==0){fi='⚠ '+tr('You are filled!');cls=' bad'}}
  else{const rem=c-sum(S.took);for(let n=rem+1;n<=c;n++)dis.add(n);const bal=balText(sum(S.bids),c),b=S.bids[p];
   sub='';
-  extra=`<button class="b" data-v="${b}" ${dis.has(b)?'disabled':''}>✓ ${bl(b)}</button>`}
+  extra=`<button class="b ok" data-v="${b}" ${dis.has(b)?'disabled':''}><i>✓</i><span>${bl(b)}</span></button>`}
  if(RK!=null)sub='✎ '+tr('Deal')+' '+I.n;
  const ov=$('#ov');ov.hidden=false;
  ov.innerHTML=`<div class="dlg${cls}"><h3>${esc(kind=='bid'||LANG!=='ka'?N[p]:N[p]+(/[აეიოუ]$/.test(N[p])?'მ':'მა'))}${kind=='bid'?' '+tr('says'):LANG==='ka'?' წაიღო':' – '+tr('TAKEN')}</h3>${sub?`<div style="font-style:italic;margin-top:4px">${sub}</div>`:''}${fi?`<div class="fi${cls}">${fi}</div>`:''}<div class="note">${note}</div>
