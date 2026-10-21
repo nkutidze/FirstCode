@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)"><title>Joker Scorer</title>
+<meta name="theme-color" content="#F2F2F7"><title>Joker Scorer</title>
 <style>
 :root{color-scheme:light dark;--fh:30px;--ff:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue","Noto Sans Georgian",Roboto,Arial,sans-serif;
 --bg:#F2F2F7;--card:#fff;--sub:#F7F7FA;--fill:rgba(120,120,128,.12);--fill2:rgba(120,120,128,.2);--sep:rgba(60,60,67,.16);--t:#1C1C1E;--t2:rgba(60,60,67,.62);--t3:rgba(60,60,67,.3);
 --g:#0B7F55;--gf:#0B7F55;--gbg:rgba(11,127,85,.11);--ring:rgba(11,127,85,.35);--r:#D9342B;--rbg:rgba(217,52,43,.1);--b:#0A6FE0;--bf:#007AFF;--bbg:rgba(0,122,255,.1);
 --y:#FFCC00;--yc:#8A6100;--ybg:rgba(255,204,0,.2);--o:#C26400;--gold:#FFF7DB;--glass:rgba(249,249,251,.78);--on:#fff;--tot:#E3F1EA;--tot2:#D5EBDF;--live:#FFF5D9;--live2:#FFEDB8;--bad:#FFF0EF;--sh:0 1px 2px rgba(0,0,0,.04),0 2px 12px rgba(0,0,0,.05);--ov:rgba(0,0,0,.38)}
-@media(prefers-color-scheme:dark){:root{--bg:#000;--card:#1C1C1E;--sub:#232326;--fill:rgba(120,120,128,.24);--fill2:rgba(120,120,128,.36);--sep:rgba(84,84,88,.55);--t:#F5F5F7;--t2:rgba(235,235,245,.6);--t3:rgba(235,235,245,.3);
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#000;--card:#1C1C1E;--sub:#232326;--fill:rgba(120,120,128,.24);--fill2:rgba(120,120,128,.36);--sep:rgba(84,84,88,.55);--t:#F5F5F7;--t2:rgba(235,235,245,.6);--t3:rgba(235,235,245,.3);
 --g:#3DDC97;--gf:#12805A;--gbg:rgba(61,220,151,.14);--ring:rgba(61,220,151,.4);--r:#FF6961;--rbg:rgba(255,105,97,.16);--b:#4DA3FF;--bf:#0A84FF;--bbg:rgba(10,132,255,.18);
---y:#FFD60A;--yc:#FFD60A;--ybg:rgba(255,214,10,.16);--o:#FF9F0A;--gold:#3A3213;--glass:rgba(28,28,30,.78);--on:#636366;--tot:#16372A;--tot2:#1D4635;--live:#3A3212;--live2:#4A3F14;--bad:#3A1B19;--sh:0 0 0 .5px rgba(255,255,255,.05);--ov:rgba(0,0,0,.6)}}
+--y:#FFD60A;--yc:#FFD60A;--ybg:rgba(255,214,10,.16);--o:#FF9F0A;--gold:#3A3213;--glass:rgba(28,28,30,.78);--on:#636366;--tot:#16372A;--tot2:#1D4635;--live:#3A3212;--live2:#4A3F14;--bad:#3A1B19;--sh:0 0 0 .5px rgba(255,255,255,.05);--ov:rgba(0,0,0,.6)}}:root[data-theme=dark]{color-scheme:dark;--bg:#000;--card:#1C1C1E;--sub:#232326;--fill:rgba(120,120,128,.24);--fill2:rgba(120,120,128,.36);--sep:rgba(84,84,88,.55);--t:#F5F5F7;--t2:rgba(235,235,245,.6);--t3:rgba(235,235,245,.3);
+--g:#3DDC97;--gf:#12805A;--gbg:rgba(61,220,151,.14);--ring:rgba(61,220,151,.4);--r:#FF6961;--rbg:rgba(255,105,97,.16);--b:#4DA3FF;--bf:#0A84FF;--bbg:rgba(10,132,255,.18);
+--y:#FFD60A;--yc:#FFD60A;--ybg:rgba(255,214,10,.16);--o:#FF9F0A;--gold:#3A3213;--glass:rgba(28,28,30,.78);--on:#636366;--tot:#16372A;--tot2:#1D4635;--live:#3A3212;--live2:#4A3F14;--bad:#3A1B19;--sh:0 0 0 .5px rgba(255,255,255,.05);--ov:rgba(0,0,0,.6)}:root[data-theme=light]{color-scheme:light}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;font-family:var(--ff);background:var(--bg);color:var(--t);padding:10px;padding-bottom:env(safe-area-inset-bottom);-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
 #app{max-width:640px;margin:0 auto}
@@ -32,7 +34,7 @@ table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px;text-a
 td{padding:8px 4px;white-space:nowrap;border-bottom:.5px solid var(--sep)}tr:last-child td{border-bottom:0}
 .boxes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:10px 0;align-items:start}
 .box{position:relative;background:var(--card);border-radius:18px;box-shadow:var(--sh);text-align:center;padding:10px 6px 0;font-size:12px;min-width:0;overflow:hidden;display:flex;flex-direction:column;transition:box-shadow .2s}
-.box.r1{background:var(--gold);box-shadow:inset 0 0 0 1.5px rgba(255,204,0,.75),var(--sh)}
+.box.r1{box-shadow:0 0 0 2px var(--y),var(--sh)}
 .box .bn{font-size:13px;font-weight:600;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 2px;line-height:18px;height:18px;flex:none}
 .box .bn .star{color:var(--o);margin-right:2px;display:inline-block;line-height:1;font-size:12px;vertical-align:middle}
 .box>b{display:block;font-size:25px;font-weight:700;letter-spacing:-.02em;color:var(--t);margin:3px 0 8px;line-height:1.1}.box>b.neg{color:var(--r)}
@@ -46,7 +48,7 @@ td{padding:8px 4px;white-space:nowrap;border-bottom:.5px solid var(--sep)}tr:las
 .box .gv,.tc .gv{font-size:10px;color:var(--t3);line-height:1;height:var(--fh);margin-top:auto;flex:none;display:flex;align-items:center;justify-content:center;transition:transform .3s}.box.exp .gv,.tc.exp .gv{transform:rotate(180deg)}
 .dd{display:inline-block;font-size:11px;font-weight:600;color:var(--o);line-height:1.2}.dd .dj{font-size:13px}.dd b{font-size:12px}table.sc td b.lv{font-weight:400;color:var(--t2);font-size:14px}
 .gi{margin:auto -6px 0;padding:4px 2px 5px;border-top:.5px solid var(--sep);background:var(--sub);font-size:10px;font-weight:600;color:var(--t2);line-height:1.25}
-.gi.lead{background:var(--ybg);color:var(--yc);border-top:0;font-size:12px;padding:0 2px;height:var(--fh);flex:none;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
+.gi.lead{background:var(--sub);color:var(--yc);border-top:.5px solid var(--sep);font-size:12px;padding:0 2px;height:var(--fh);flex:none;display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden}
 .seg{display:flex;gap:2px;background:var(--fill);padding:2px;border-radius:10px}.seg button{flex:1;padding:9px 6px;border:0;background:transparent;border-radius:8px;font:500 15px var(--ff);color:var(--t);cursor:pointer;transition:background .2s,box-shadow .2s}
 .seg button.on{background:var(--on);font-weight:600;box-shadow:0 3px 8px rgba(0,0,0,.12),0 3px 1px rgba(0,0,0,.04)}
 .seg.wrap{flex-wrap:wrap;background:none;padding:0;gap:8px}.seg.wrap button{flex:1 1 28%;background:var(--fill);padding:14px 6px;border-radius:12px;font-size:17px;box-shadow:none}.seg.wrap button[data-v=c]{flex:1 1 100%}.seg.wrap button.on{background:var(--gf);color:#fff}
@@ -69,7 +71,7 @@ td{padding:8px 4px;white-space:nowrap;border-bottom:.5px solid var(--sep)}tr:las
 #hint{text-align:center;color:var(--t2);font-weight:500;font-size:13px;margin:8px 0}
 #ov{position:fixed;inset:0;background:var(--ov);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:9;padding:12px}#ov[hidden]{display:none}
 .dlg{background:var(--card);border-radius:26px;padding:20px 16px 16px;width:min(94vw,400px);max-height:94vh;overflow:auto;text-align:center;box-shadow:0 24px 70px rgba(0,0,0,.35)}.dlg h3{margin:0;color:var(--t);font-size:20px;font-weight:700;letter-spacing:-.01em}
-.dlg.warn{box-shadow:0 0 0 3px var(--y),0 24px 70px rgba(0,0,0,.35)}.dlg.bad{background:var(--bad);box-shadow:0 0 0 3px var(--r),0 24px 70px rgba(0,0,0,.35)}.dlg.bad h3{color:var(--r)}
+.dlg.warn{box-shadow:0 0 0 3px var(--y),0 24px 70px rgba(0,0,0,.35)}.dlg.bad{box-shadow:0 0 0 3px var(--r),0 24px 70px rgba(0,0,0,.35)}.dlg.bad h3{color:var(--r)}
 .fi{margin-top:8px;font-weight:600;font-size:16px;color:var(--g)}.fi.warn{color:var(--yc)}.fi.bad{color:var(--r);font-size:22px}
 .b.fill:not(:disabled){outline:3px solid var(--y);outline-offset:2px}
 .watch{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--ybg);color:var(--yc);border-radius:14px;padding:8px 12px;margin:8px 0;font-size:14px}.watch button{border:0;background:var(--card);color:var(--yc);border-radius:10px;padding:6px 12px;font:600 14px var(--ff)}
@@ -108,13 +110,13 @@ table.sc td.pmcell{animation:pmcell 1.8s 1.1s ease-out}@keyframes pmcell{0%{box-
 table.sc td:first-child,table.sc th:first-child{position:sticky;left:0;z-index:1;background:var(--sub);border-right:.5px solid var(--sep)}table.sc th:first-child{z-index:3;background:var(--card)}
 .bd{color:var(--t2);font-weight:600;font-size:13px}
 table.sc td.tm{background:var(--sub);font-weight:600;color:var(--g);font-size:15px}
-table.sc tr.tot td{background:var(--tot);color:var(--g);border-bottom:0}table.sc tr.tot td:first-child{background:var(--tot2)}table.sc tr.tot b{color:var(--g)}table.sc tr.tot small{color:var(--t2)}
+table.sc tr.tot td{background:var(--card);color:var(--t);border-top:2px dashed var(--g);border-bottom:2px dashed var(--g)}table.sc tr.tot td:first-child{background:var(--sub)}table.sc tr.tot b{color:var(--t)}table.sc tr.tot small{color:var(--t2)}
 .tl{display:block;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--g)}
 .pl{display:inline-block;font-style:normal;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:9px;margin-left:5px;line-height:1.3}.pl.up{background:var(--ybg);color:var(--yc)}.pl.dn{background:var(--rbg);color:var(--r)}
 table.sc th{padding:8px 3px;font-size:12px}table.sc td{padding:5px 3px;line-height:1.2}table.sc td:first-child{padding:5px 8px}
 table.sc td b{display:inline;font-size:15px;font-weight:600}table.sc td .bs{font-size:11px;color:var(--t2)}table.sc td .cl{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:0 4px}
-table.sc tr.tot td{padding:6px 3px}table.sc tr.tot b{font-size:16px;font-weight:700}
-table.sc tr.live td{background:var(--live);border-top:1px solid rgba(255,159,10,.45)}table.sc tr.live td:first-child{background:var(--live2)}table.sc tr.live b{color:var(--o)}
+table.sc tr.tot td{padding:9px 3px}table.sc tr.tot b{font-size:17px;font-weight:700}
+table.sc tr.live td{background:var(--sub);border-top:.5px solid var(--sep)}table.sc tr.live td:first-child{box-shadow:inset 3px 0 0 var(--gf)}table.sc tr.live b{color:var(--t)}table.sc tr.live .dd{color:var(--t)}
 </style></head><body>
 <header class="top"><span class="ttl">♠ ♥ JOKER ♦ ♣</span><button id="mb" class="mb" onclick="tog(event)" aria-label="Menu">☰</button><nav id="mn" hidden></nav></header><div id="app"></div><div id="ov" hidden></div>
 <script>
@@ -135,9 +137,9 @@ const KA={'Statistics':'სტატისტიკა','New game':'ახალ
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
 'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.','Please enter the penalty.':'გთხოვთ, ჩაწერეთ ხიშტის რაოდენობა.',
 '+{0} to 1st place 🚀':'+{0} ქულა პირველ ადგილამდე 🚀','Category':'კატეგორია','Fix this round?':'ჩავასწორო?\nამ რაუნდის ყველა მონაცემი გასუფთავდება და თავიდან შეიყვანთ.','Fix':'ჩასწორება','Standard':'სტანდარტული','Nines':'ცხრიანები','Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
-'Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'ნელა, მაგრამ დარწმუნებით'};
+'Dark mode':'მუქი რეჟიმი','Light mode':'ნათელი რეჟიმი','Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'ნელა, მაგრამ დარწმუნებით'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
-const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('share')">📡 ${tr('Share game')}</button><button onclick="menu('join')">👁 ${tr('Enter code')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
+const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('theme')">${isDark()?'☀️ '+tr('Light mode'):'🌙 '+tr('Dark mode')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
 function setLang(){if(VIEW==='setup'&&$('#ty'))SV={md:$('#md').value,pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pv:$('#pv').value,pe:$('#pe').value};
  LANG=LANG==='ka'?'en':'ka';localStorage.setItem('joker_lang',LANG);document.documentElement.lang=LANG;$('#mn').innerHTML=menuHTML();
  if(VIEW==='stats')stats();else if(VIEW==='game'&&S)render();else setup()}
@@ -178,9 +180,9 @@ function pcShow(){const n=+$('#pc').value;document.querySelectorAll('.nm').forEa
 function penShow(){const m=$('#pm').value,v=$('#pv').value,t=$('#pe').value!=='';document.querySelectorAll('#pbs button').forEach(b=>b.classList.toggle('on',m=='c'?b.dataset.v=='c':!t&&b.dataset.v==v));$('#pe').disabled=m=='c'}
 function penPick(m,v){$('#pm').value=m;$('#pe').value='';$('#pv').value=m=='f'?v:'';penShow()}
 function penType(){$('#pm').value='f';$('#pv').value=$('#pe').value.trim();penShow()}
-function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><div class="fan"><i>♠</i><i class="rd">♥</i><i class="jk">🃏</i><i class="rd">♦</i><i>♣</i></div><h1>${tr('New game')}</h1><div class="hs">${tr('Game rules')}</div></div>
+function setup(){VIEW='setup';S=null;$('#app').innerHTML=`<div class="hero"><h1>${tr('New game')}</h1><div class="hs">${tr('Game rules')}</div></div>
 <div class="card setup">
-<div class="sec"><label>🎴 ${tr('Category')}</label>${seg('md',[['std',tr('Standard')],['nines',tr('Nines')]],'std')}</div>
+<div class="sec"><label>🗂 ${tr('Category')}</label>${seg('md',[['std',tr('Standard')],['nines',tr('Nines')]],'std')}</div>
 <div class="sec"><label>👥 ${tr('Number of players')}</label>${seg('pc',[['4',tr('4 players')],['3',tr('3 players')]],'4')}</div>
 <div class="sec" id="tysec"><label id="tylbl">🤝 ${tr('Game type')}</label>${seg('ty',[['Individual',tr('Individual')],['Teams',tr('Teams')]],'Individual')}
 <div class="mut" id="tnote">${tr('Teams: Player 1 & 3 vs Player 2 & 4')}</div></div>
@@ -379,8 +381,13 @@ async function pollWatch(){if(!WATCH)return;try{const r=await fetch(liveUrl(WATC
  if(!d||!d.s){if(!WATCH.ended){WATCH.ended=true;render()}return}
  const was=WATCH.ended;WATCH.ended=false;if(d.s!==WATCH.last||was){WATCH.last=d.s;S=JSON.parse(d.s);syncR();render()}}catch(e){}}
 function stopWatch(quiet){if(!WATCH)return;clearInterval(WATCH.timer);S=WATCH.mine;WATCH=null;syncR();if(!quiet){if(S&&S.cfg){render();setTimeout(go,300)}else setup()}}
-function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else if(w=='share')shareGame();else if(w=='join')joinGame();else newGame()}
+function menu(w){$('#mn').hidden=true;if(w=='stats')stats();else if(w=='lang')setLang();else if(w=='theme')toggleTheme();else if(w=='share')shareGame();else if(w=='join')joinGame();else newGame()}
 async function newGame(){if(WATCH)stopWatch(true);if(S&&S.share&&LIVE_URL)fetch(liveUrl(S.share),{method:'DELETE'}).catch(()=>{});if(S&&S.results.length<TOTAL&&(S.results.length||S.bids.some(b=>b!=null))&&!(await box(tr('Start a new game?\nThe current unfinished game will be lost.'),tr('Start new'),tr('Cancel'))))return;localStorage.removeItem('joker_state');setup()}
+function isDark(){const t=document.documentElement.dataset.theme;return t?t=='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function applyTheme(){const t=localStorage.getItem('joker_theme');if(t)document.documentElement.dataset.theme=t;else delete document.documentElement.dataset.theme;document.querySelector('meta[name=theme-color]').content=isDark()?'#000000':'#F2F2F7';$('#mn').innerHTML=menuHTML()}
+function toggleTheme(){localStorage.setItem('joker_theme',isDark()?'light':'dark');applyTheme()}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
+applyTheme();
 $('#mn').innerHTML=menuHTML();
 S&&S.cfg?(render(),setTimeout(go,300)):setup();
 </script></body></html>
