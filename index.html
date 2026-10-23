@@ -69,6 +69,9 @@ td{padding:8px 4px;white-space:nowrap;border-bottom:.5px solid var(--sep)}tr:las
 .deal .ic{font-size:26px;line-height:1;background:var(--card);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh)}
 .deal b{display:block;font-size:18px;font-weight:600;line-height:1.2}.deal small{display:block;font-size:13px;color:var(--t2);margin-top:2px}
 .dealrow .bal{margin:0;display:flex;align-items:center;padding:6px 22px}
+.grid.sm{gap:6px;margin:6px 0 0}.grid.sm .b{height:42px;font-size:17px}.rcard{background:var(--card);border-radius:18px;box-shadow:var(--sh);margin:10px 0;overflow:hidden}.rh{font-size:12px;font-weight:600;color:var(--t2);padding:10px 14px 0;text-align:left}
+.rbids{display:grid;gap:4px;padding:4px 8px 8px}.rb{text-align:center;min-width:0;border-radius:12px;padding:4px 2px}.rb span{display:block;font-size:13px;font-weight:600;color:var(--t2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rb b{display:block;font-size:26px;font-weight:700;line-height:1.15}.rb.cur{background:var(--gbg)}.rb.cur b{color:var(--g)}
+.rcard .bal{margin:0;width:auto;border-radius:0;padding:10px 12px;font-size:18px}
 .bal{text-align:center;border:0;border-radius:18px;padding:8px 20px;margin:8px auto;width:max-content;font-weight:600;font-size:20px}.bal .bi{display:inline-block;margin-right:9px}.bal.pop{animation:popIn .5s cubic-bezier(.2,1.5,.4,1)}@keyframes popIn{from{opacity:0;transform:scale(.8)}}
 #hint{text-align:center;color:var(--t2);font-weight:500;font-size:13px;margin:8px 0}
 #ov{position:fixed;inset:0;background:var(--ov);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:9;padding:12px}#ov[hidden]{display:none}
@@ -116,7 +119,7 @@ table.sc tr.tot td{background:var(--card);color:var(--t);border-top:2px dashed v
 .tl{display:block;font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--g)}
 .pl{display:inline-block;font-style:normal;font-size:10.5px;font-weight:600;padding:1px 6px;border-radius:9px;margin-left:5px;line-height:1.3}.pl.up{background:var(--ybg);color:var(--yc)}.pl.dn{background:var(--rbg);color:var(--r)}
 table.sc th{padding:10px 3px;font-size:15px;font-weight:700;color:var(--t)}table.sc td{padding:8px 3px;line-height:1.2}table.sc td:first-child{padding:5px 8px}
-table.sc td b{display:inline;font-size:19px;font-weight:600}table.sc td .bs{font-size:13px;color:var(--t2)}table.sc td .cl{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:0 4px}
+table.sc td b{display:inline;font-size:19px;font-weight:400}table.sc td .bs{font-size:13px;color:var(--t2)}table.sc td .cl{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding:0 4px}
 table.sc tr.tot td{padding:10px 3px}table.sc tr.tot b{font-size:20px;font-weight:700}
 table.sc tr.live td{background:var(--live);border-top:.5px solid var(--sep)}table.sc tr.live td:first-child{background:var(--live2);box-shadow:inset 3px 0 0 var(--gf)}table.sc tr.live b{color:var(--t)}table.sc tr.live .dd{color:var(--t)}
 </style></head><body>
@@ -133,13 +136,13 @@ const KA={'Statistics':'სტატისტიკა','New game':'ახალ
 'Next to bid: {0}':'შემდეგი თქმა: {0}','All bids are in. Play the round, then enter taken.':'ითამაშეთ რაუნდი, შემდეგ შეიყვანეთ აღებული.','Taken: {0} of {1}':'აღებული: {0} / {1}',
 '↶ Undo':'↶ გაუქმება','Game finished':'თამაში დასრულდა','Enter bid: {0}':'ამბობს {0}','Enter taken: {0}':'წაღებული: {0}',
 'Cannot bid {0} (the bids would be full)':'ვერ დაასახელებთ {0}-ს (განცხადებები სრული იქნება)','Round {0} • {1} cards • bids {2}':'რაუნდი {0} • {1} კარტი • {2} ამბობს','1st':'1-ლი','2nd':'მე-2','3rd':'მე-3','4th':'მე-4',
-'Round {0} • bid: {1} • {2} left':'რაუნდი {0} • განცხადება: {1} • დარჩა {2}','✓ Took as bid ({0})':'✓ აიღო განცხადებისამებრ ({0})','BID':'განცხადება','TAKEN':'აღებული','Cancel':'გაუქმება','place':'ადგილი','To 1st: {0}':'პირველამდე: {0}','Last place':'ბოლო ადგილი','Pass':'პასი','OK':'კარგი',
+'Round {0} • bid: {1} • {2} left':'რაუნდი {0} • განცხადება: {1} • დარჩა {2}','✓ Took as bid ({0})':'✓ აიღო განცხადებისამებრ ({0})','BID':'ნათქვამი','TAKEN':'აღებული','Cancel':'გაუქმება','place':'ადგილი','To 1st: {0}':'პირველამდე: {0}','Last place':'ბოლო ადგილი','Pass':'პასი','OK':'კარგი',
 'Delete ALL saved games?':'ყველა შენახული თამაშის წაშლა?','Delete':'წაშლა','Start a new game?\nThe current unfinished game will be lost.':'დავიწყოთ ახალი თამაში?\nმიმდინარე დაუსრულებელი თამაში დაიკარგება.','Start new':'დაწყება',
 'Tie! Both teams {0}':'ფრე! ორივე გუნდს {0} აქვს','Winner: {0} with {1}':'გამარჯვებული: {0} — {1}','Saved in Statistics.':'შენახულია სტატისტიკაში.',
 '{0} finished games saved on this phone':'{0} დასრულებული თამაში შენახულია ამ ტელეფონზე','Games':'თამაშები','Wins':'გამარჯვებები','Avg total':'საშ. ჯამი','Bid hit %':'ზუსტი განცხადება %','No finished games yet':'დასრულებული თამაშები ჯერ არ არის',
 'Download rounds CSV':'რაუნდების CSV ჩამოტვირთვა','Download games CSV':'თამაშების CSV ჩამოტვირთვა','Delete all saved games':'ყველა შენახული თამაშის წაშლა','← Back':'← უკან','To fill: {0}':'შესავსებად საჭიროა {0}','Filled':'შევსებულია','You are filled!':'მგონი იდრინგები','Edit':'შესწორება','Save':'შენახვა','Score':'ქულა','Round':'რაუნდი','Close':'დახურვა','says':'ამბობს','Deal':'დარიგება','Number of players':'მოთამაშეების რაოდენობა','4 players':'4 მოთამაშე','3 players':'3 მოთამაშე','Please enter all player names.':'გთხოვთ, შეიყვანეთ ყველა მოთამაშის სახელი.','Please enter the penalty.':'გთხოვთ, ჩაწერეთ ხიშტის რაოდენობა.',
 '+{0} to 1st place 🚀':'+{0} ქულა პირველ ადგილამდე 🚀','Category':'კატეგორია','Fix this round?':'ჩავასწორო?\nამ რაუნდის ყველა მონაცემი გასუფთავდება და თავიდან შეიყვანთ.','Fix':'ჩასწორება','Standard':'სტანდარტული','Nines':'ცხრიანები','Share game':'თამაშის გაზიარება','Enter code':'კოდის შეყვანა','View':'ნახვა','Watching':'ნახვის რეჟიმი','Exit':'გასვლა','Sharing ended':'გაზიარება დასრულდა','Code not found.':'კოდი ვერ მოიძებნა.','Could not connect.':'კავშირი ვერ დამყარდა.','Online sharing is not set up yet.':'ონლაინ გაზიარება ჯერ არ არის გამართული.','Start a game first.':'ჯერ დაიწყეთ თამაში.','Game code: {0}\nShare it with the other players: ☰ → Enter code.':'თამაშის კოდი: {0}\nგაუზიარეთ სხვა მოთამაშეებს: ☰ → კოდის შეყვანა.','Stop sharing':'გაზიარების შეწყვეტა',
-'Dark mode':'მუქი რეჟიმი','Light mode':'ნათელი რეჟიმი','Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'ფეხდაფეხ მისდევს','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'გაჭირვებით მიღორავს'};
+'Dark mode':'მუქი რეჟიმი','Light mode':'ნათელი რეჟიმი','Bids':'განაცხადები','What to edit?':'რა ჩავასწორო?','Edit whole round':'მთლიანი რაუნდის ჩასწორება','Edit taken only':'მხოლოდ წაღებულის ჩასწორება','Leader':'ლიდერი','To 1st':'პირველამდე','Part {0} finished':'ნაწილი {0} დასრულდა','Next part':'შემდეგი ნაწილი','This part':'ამ ნაწილში','premia':'პრემია','Table king':'მაგიდის მეფე','Right on their heels':'კუდზე უდგას','Still in the game':'ჯერ კიდევ თამაშშია','Slow but steady':'მოჩანჩალე'};
 function tr(s,...a){let r=(LANG==='ka'&&KA[s])||s;a.forEach((v,i)=>r=r.split('{'+i+'}').join(v));return r}
 const menuHTML=()=>`<button onclick="menu('stats')">📊 ${tr('Statistics')}</button><button onclick="menu('new')">➕ ${tr('New game')}</button><button onclick="menu('theme')">${isDark()?'☀️ '+tr('Light mode'):'🌙 '+tr('Dark mode')}</button><button onclick="menu('lang')">🌐 ${LANG==='ka'?'English':'ქართული'}</button>`;
 function setLang(){if(VIEW==='setup'&&$('#ty'))SV={md:$('#md').value,pc:$('#pc').value,nm:[...document.querySelectorAll('.nm')].map(i=>i.value),ty:$('#ty').value,af:$('#af').value,pm:$('#pm').value,pv:$('#pv').value,pe:$('#pe').value};
@@ -157,7 +160,7 @@ const balText=(a,c)=>a>c?tr('OVER')+' '+(a-c):a<c?tr('EXTRA')+' '+(c-a):'';
 const pill=a=>a>0?`<i class="pl up">★ +${fmt(a)}</i>`:a<0?`<i class="pl dn">✂ ${fmt(a)}</i>`:'';
 const td=(r,x,j)=>r.k=='t'?`<td><b>${x.v}</b></td>`
  :r.k=='l'?`<td><div class="cl"><span class="bs">${x.b==null?'·':bl(x.b)}</span><b class="lv">${x.t==null?'':x.t}</b></div></td>`
- :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':x.b>0&&x.t==0?'pen':'miss'}${ANIM&&x.pm?' pmcell':''}"${WATCH?'':` onclick="redoRound(${r.i})"`}><div class="cl"><span class="bs">${bl(x.b)}</span><b${x.cut?` class="cut${ANIM?' cutanim':''}"${ANIM?` style="--d:${(2.1+.45*j).toFixed(2)}s"`:''}`:x.pm&&ANIM?' class="pmanim"':''}>${x.pm?(ANIM?`<span class="pmo">${x.s}</span><span class="pmn"><span class="pmx">★</span>${x.s+x.pm}</span>`:`<span class="pmx">★</span>${x.s+x.pm}`):x.s}</b></div></td>`;
+ :`<td class="${WATCH?'':'ed '}${x.b==x.t?'hit':x.b>0&&x.t==0?'pen':'miss'}${ANIM&&x.pm?' pmcell':''}"${WATCH?'':` onclick="cellTap(${r.i},${j})"`}><div class="cl"><span class="bs">${bl(x.b)}</span><b${x.cut?` class="cut${ANIM?' cutanim':''}"${ANIM?` style="--d:${(2.1+.45*j).toFixed(2)}s"`:''}`:x.pm&&ANIM?' class="pmanim"':''}>${x.pm?(ANIM?`<span class="pmo">${x.s}</span><span class="pmn"><span class="pmx">★</span>${x.s+x.pm}</span>`:`<span class="pmx">★</span>${x.s+x.pm}`):x.s}</b></div></td>`;
 function tableHTML(rows,N,T){
  const head=N.map((n,p)=>`<th><span class="pn">${esc(n)}</span></th>`).join('')+'';
  const body=rows.map(r=>`<tr class="${r.k=='t'?'tot':r.k=='l'?'live':''}"><td>${r.k=='t'?`<span class="tl">${tr('TOTAL')}</span><small>${r.sub}</small>`:r.k=='l'?`<span class="dd"><span class="dj">🃏</span> ${esc(r.d)} <b>${r.c}</b></span>`:`<span class="bd">${r.c}</span>`}</td>${r.cells.map((x,j)=>td(r,x,j)).join('')}</tr>`).join('');
@@ -229,7 +232,8 @@ function render(){VIEW='game';const N=S.cfg.names,T=S.cfg.team,k=S.results.lengt
  const st=done?null:nextStep();let bal='',popKey='';
  if(st&&S.bids.every(b=>b!=null)){const d=sum(S.bids)-R[k].cards;if(d){const t=balText(sum(S.bids),R[k].cards),n=Math.abs(d),over=d>0,c=over?'var(--r)':'var(--b)';
   const key=k+(over?'o':'e')+d,pop=BALSEEN!==key;popKey=key;bal=`<div class="bal ${over?'ov':'ex'}${pop?' pop':''}" style="color:${c};background:${over?'var(--rbg)':'var(--bbg)'}"><span class="bi">${over?'✂️':'🍔'}</span> ${t}</div>`}}BALSEEN=popKey;
- let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+(bal?`<div class="dealrow">${bal}</div>`:'')+tbl+`${!done&&st[0]!='bid'&&sum(S.took)>0?`<div id="hint">${tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>`:''}
+ const bidsCard=(!done&&S.bids.some(b=>b!=null))?`<div class="rcard"><div class="rh">${tr('Round')} ${k+1}/${TOTAL}</div><div class="rbids" style="grid-template-columns:repeat(${N.length},minmax(0,1fr))">${N.map((n,p)=>`<div class="rb${st&&st[0]=='bid'&&st[1]==p?' cur':''}"><span>${esc(n)}</span><b>${S.bids[p]==null?'–':S.bids[p]}</b></div>`).join('')}</div>${bal}</div>`:'';
+ let h=(WATCH?`<div class="watch"><span>👁 ${tr('Watching')} · <b>${WATCH.code}</b>${WATCH.ended?' · '+tr('Sharing ended'):''}</span><button onclick="stopWatch()">${tr('Exit')}</button></div>`:'')+tm+bx+bidsCard+tbl+`${!done&&st[0]!='bid'&&sum(S.took)>0?`<div id="hint">${tr('Taken: {0} of {1}',sum(S.took),R[k].cards)}</div>`:''}
 ${WATCH?'':`<div class="row bar"><button class="b gh" onclick="undo()">${tr('↶ Undo')}</button><button class="b" onclick="go()" ${done?'disabled':''}>${done?tr('Game finished'):st[0]=='bid'?tr('Enter bid: {0}',esc(N[st[1]])):tr('Enter taken: {0}',esc(N[st[1]]))}</button></div>`}`;
  const KS='#app .box[data-p],#app .tc[data-t],#app .stk[data-s]',KY=e=>e.dataset.s!=null?'s'+e.dataset.s:e.dataset.p!=null?e.dataset.p:'t'+e.dataset.t;const old={};document.querySelectorAll(KS).forEach(e=>old[KY(e)]=e.getBoundingClientRect());
  $('#app').innerHTML=h;
@@ -316,12 +320,26 @@ async function redoRound(i){const ov=$('#ov');if(WATCH||!ov.hidden||!S.results[i
   if(ok){const r=S.results[i],pen=S.cfg.penCards?100*c:S.cfg.pen,nb=[...S.bids],nt=[...S.took];r.bids=nb;r.took=nt;r.scores=nb.map((b,p)=>score(b,nt[p],c,pen))}
  }finally{S.bids=sb;S.took=st;S.log=sl;RK=null}
  if(ok){keep();if(S.results.length==TOTAL)save(true);render()}}
-function editCell(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
+function cellTap(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
+ ov.hidden=false;
+ ov.innerHTML=`<div class="dlg"><h3>${esc(S.cfg.names[p])}</h3><div style="margin:8px 0 16px;color:var(--t2)">${tr('What to edit?')}</div><div class="row" style="flex-direction:column;align-items:stretch"><button class="b" id="c1">${tr('Edit whole round')}</button><button class="b" id="c2">${tr('Edit taken only')}</button><button class="b gh" id="c3">${tr('Cancel')}</button></div></div>`;
+ const close=()=>{ov.hidden=true;ov.innerHTML=''};
+ $('#c1').onclick=()=>{close();redoRound(i)};$('#c2').onclick=()=>{close();editTaken(i,p)};$('#c3').onclick=close}
+function editTaken(i,p){const ov=$('#ov');if(WATCH||!ov.hidden)return;
+ const r=S.results[i],c=R[i].cards,N=S.cfg.names,pen=S.cfg.penCards?100*c:S.cfg.pen,t=[...r.took],o=[p,...[...N.keys()].filter(q=>q!=p)];
+ const close=()=>{ov.hidden=true;ov.innerHTML=''};
+ const draw=()=>{const sm=sum(t);ov.hidden=false;
+  ov.innerHTML=`<div class="dlg"><h3>${tr('TAKEN')} • ${c} ${tr('Cards')}</h3>${o.map(q=>`<div style="font-weight:600;margin-top:12px;text-align:left">${esc(N[q])} <span style="font-weight:400;color:var(--t2)">(${tr('BID')}: ${bl(r.bids[q])})</span></div><div class="grid sm">${Array.from({length:c+1},(_,n)=>`<button class="b${n==t[q]?'':' sec'}" data-q="${q}" data-v="${n}" ${n>t[q]+(c-sm)?'disabled':''}>${bl(n)}</button>`).join('')}</div>`).join('')}<div class="fi${sm==c?'':' warn'}">${tr('Taken: {0} of {1}',sm,c)}</div><div class="row" style="margin-top:10px"><button class="b" id="es" ${sm==c?'':'disabled'}>${tr('Save')}</button><button class="b gh" id="ec">${tr('Cancel')}</button></div></div>`;
+  ov.querySelectorAll('button[data-q]').forEach(el=>el.onclick=()=>{t[+el.dataset.q]=+el.dataset.v;draw()});
+  $('#ec').onclick=close;
+  $('#es').onclick=()=>{r.took=[...t];r.scores=r.bids.map((b,q)=>score(b,t[q],c,pen));close();keep();if(S.results.length==TOTAL)save(true);render()}};
+ draw()}
+function editCell(i,p,tk){const ov=$('#ov');if(WATCH||!ov.hidden)return;
  const r=S.results[i],c=R[i].cards,N=S.cfg.names,pen=S.cfg.penCards?100*c:S.cfg.pen;let b=r.bids[p],t=r.took[p];
  const row=(k,v)=>`<div class="grid">${Array.from({length:c+1},(_,n)=>`<button class="b${n==v?'':' sec'}" data-k="${k}" data-v="${n}">${bl(n)}</button>`).join('')}</div>`;
  ov.hidden=false;
  ov.innerHTML=`<div class="dlg"><h3>${esc(N[p])} • ${c} ${tr('Cards')}</h3>
- <div style="font-weight:bold;margin-top:8px;color:var(--t2)">${tr('BID')}</div>${row('b',b)}
+ ${tk?`<div style="margin-top:8px;color:var(--t2)">${tr('BID')}: <b>${bl(b)}</b></div>`:`<div style="font-weight:bold;margin-top:8px;color:var(--t2)">${tr('BID')}</div>${row('b',b)}`}
  <div style="font-weight:bold;color:var(--t2)">${tr('TAKEN')}</div>${row('t',t)}
  <div class="fi" id="ei"></div><div class="note" id="en"></div>
  <div class="row" style="margin-top:10px"><button class="b" id="es">${tr('Save')}</button><button class="b gh" id="ec">${tr('Cancel')}</button></div></div>`;
